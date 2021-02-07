@@ -57,7 +57,8 @@ namespace GestionCaja
 
         public override void Eliminar()
         {
-            //lalalalala2
+            //lalalalala
+            int x;
             dataManagement = new SqlDataManagement();
             dataManagement.ExecuteCommand("UPDATE EMPLEADO SET ESTADO='INACTIVO' WHERE INDENTIFICADOR="+id.Value);
         }
