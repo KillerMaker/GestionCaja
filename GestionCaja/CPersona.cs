@@ -42,7 +42,13 @@ namespace GestionCaja
         public static void Actualizar(CPersona oldPersona, CPersona newPersona)
         {
             dataManagement = new SqlDataManagement();
-            dataManagement.ExecuteCommand("UPDATE PERSONA SET NOMBRE='" + newPersona.nombre + "',GENERO='" + newPersona.genero + "' FROM PERSONA P INNER JOIN EMPLEADO E ON E.ID_PERSONA=P.ID_PERSONA WHERE IDENTIFICADOR="+oldPersona.id);
+
+            if(newPersona is CEmpleado)
+                dataManagement.ExecuteCommand($"UPDATE PERSONA SET NOMBRE='{newPersona.nombre}',GENERO='{newPersona.genero}' FROM PERSONA P INNER JOIN EMPLEADO E ON E.ID_PERSONA=P.ID_PERSONA WHERE IDENTIFICADOR={oldPersona.id}");
+            
+            else if(newPersona is CEstudiante)
+                dataManagement.ExecuteCommand($"UPDATE PERSONA SET NOMBRE='{newPersona.nombre}' ,GENERO='{newPersona.genero}' FROM PERSONA P INNER JOIN ESTUDIANTE E ON E.ID_PERSONA=P.ID_PERSONA WHERE IDENTIFICADOR={oldPersona.id}");
+
         }
     }
 }

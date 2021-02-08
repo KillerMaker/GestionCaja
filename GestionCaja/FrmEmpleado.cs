@@ -61,6 +61,9 @@ namespace GestionCaja
             btnActualizar.Enabled = false;
             btnInsertar.Enabled = true;
             btnActualizar2.Enabled = true;
+            mtxtCedula.Enabled = true;
+            mtxtFechaIngreso.Enabled = true;
+            mtxtFechaNac.Enabled = true;
 
             dataGridView1.DataSource = CEmpleado.Visualizar();
             limpiar();
@@ -129,6 +132,7 @@ namespace GestionCaja
             mtxtFechaIngreso.Clear();
             mtxtFechaNac.Clear();
             nudComision.Value = 0;
+            cmbGenero.Text = "";
 
             txtNombre.Focus();
         }
@@ -143,7 +147,21 @@ namespace GestionCaja
         //Boton de Eliminar datos(cambiar el valor del campo ESTADO a Inactivo)
         private void button3_Click(object sender, EventArgs e)
         {
-            oldEmpleado.Eliminar();
+            if (dataGridView1.SelectedRows.Count == 0)
+                MessageBox.Show("Seleccione un elemento para Eliminar", "Error al Eliminar");
+
+            else if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento por favor", "Error al Eliminar");
+            else
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row = dataGridView1.SelectedRows[0];// se iguala a row a la fila seleccionada
+
+                //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
+                //de las celdas de row a oldEmpleado
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), decimal.Parse(row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()));
+                oldEmpleado.Eliminar();
+            }
         }
     }
 }

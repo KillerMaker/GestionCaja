@@ -74,11 +74,10 @@ namespace GestionCaja
         //Sobrescribe el metodo abstracto Eliminar() de CPersona y lo implementa
         public override void Eliminar()
         {
-            //lalalalala
             dataManagement = new SqlDataManagement();
 
             //Actualiza a inactivo el campo ESTADO en la tabla EMPLEADO con tal de no borrar datos.
-            dataManagement.ExecuteCommand("UPDATE EMPLEADO SET ESTADO='INACTIVO' WHERE INDENTIFICADOR="+id.Value);
+            dataManagement.ExecuteCommand("UPDATE EMPLEADO SET ESTADO='Inactivo' WHERE IDENTIFICADOR=" + id.Value);
         }
 
 
