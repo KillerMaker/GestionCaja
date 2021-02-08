@@ -43,7 +43,7 @@ namespace GestionCaja
         }
         public SqlDataReader ExecuteReader()
         {
-            //xd
+            //lalalalalalala
             try
             {
                 connection.Open();
