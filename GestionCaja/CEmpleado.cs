@@ -18,6 +18,7 @@ namespace GestionCaja
         public readonly string estado;
         public readonly decimal sueldo;
 
+
         /*Constructor CEmpleado, favor usar este constructor para crear el objeto con destino a la base de datos*/
         public CEmpleado(string nombre, string fecha, string genero, string cedula,string tandaLabor,decimal porcientoComision,string fechaIngreso,string estado, decimal sueldo)
         :base(nombre,fecha,genero,cedula)//Utiliza el constructor de la clase padre CPersona
@@ -29,6 +30,7 @@ namespace GestionCaja
             this.estado = estado;
             this.sueldo = sueldo;
         }
+
 
         /*Constructor CEmpleado, favor usar este constructor al crear el objeto con informcacion proveniente de la
          base de datos:la diferencia con el constructor anterior es que este recive un argumento mas (int id)
@@ -44,6 +46,7 @@ namespace GestionCaja
             this.sueldo = sueldo;
         }
 
+
         //Sobrescribe el metodo abstracto Insertar() de CPersona y lo implementa
         public override void Insertar()
         {
@@ -52,6 +55,7 @@ namespace GestionCaja
             //Ejecuta el Stored Procedure ["INSERTAR_EMPLEADO"]
             dataManagement.ExecuteCommand("INSERTAR_EMPLEADO '" + nombre + "','" +fecha + "','" +genero + "','" +cedula + "','" +tandaLabor + "'," +porcientoComision + ",'" + fechaIngreso + "','" + sueldo + "','" +estado + "'");
         }
+
 
         //Metodo Actualizar(CPersona oldPersona, CPersona newPersona)
         //Como CEmpleado es hija de CPersona es posible utilizar CEmpleado como tipo para los parametros
@@ -66,6 +70,7 @@ namespace GestionCaja
            
         }
 
+
         //Sobrescribe el metodo abstracto Eliminar() de CPersona y lo implementa
         public override void Eliminar()
         {
@@ -75,6 +80,7 @@ namespace GestionCaja
             //Actualiza a inactivo el campo ESTADO en la tabla EMPLEADO con tal de no borrar datos.
             dataManagement.ExecuteCommand("UPDATE EMPLEADO SET ESTADO='INACTIVO' WHERE INDENTIFICADOR="+id.Value);
         }
+
 
         //Metodo Visualizar(string Consulta) utiliza un valor por defecto en el argumento consulta
         //con tal de repetir el mismo valor muchas veces por ende siempre que se utilice Visualizar()

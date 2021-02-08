@@ -20,6 +20,22 @@ namespace GestionCaja
             this.fechaRegistro = fechaRegistro;
             this.estado = estado;
         }
+        public CEstudiante(int id,string nombre, string fecha, string genero, string cedula, string carrera, string fechaRegistro, string estado)
+        : base(nombre, fecha, genero, cedula)
+        {
+            this.id = id;
+            this.carrera = carrera;
+            this.fechaRegistro = fechaRegistro;
+            this.estado = estado;
+        }
+
+        public override void Insertar()
+        {
+            dataManagement = new SqlDataManagement();
+
+            //Ejecuta el Stored Procedure ["INSERTAR_ESTUDIANTE"]
+            //dataManagement.ExecuteCommand("INSERTAR_EMPLEADO '" + nombre + "','" + fecha + "','" + genero + "','" + cedula + "','" + tandaLabor + "'," + porcientoComision + ",'" + fechaIngreso + "','" + sueldo + "','" + estado + "'");
+        }
 
         public static void Actualizar(CEstudiante oldPersona, CEstudiante newPersona)
         {
@@ -31,11 +47,7 @@ namespace GestionCaja
             throw new NotImplementedException();
         }
 
-        public override void Insertar()
-        {
-            throw new NotImplementedException();
-        }
-        public new System.Data.DataTable Visualizar(string consulta = "SELECT * FROM VISTA_ESTUDIANTE")
+        public  DataTable Visualizar(string consulta = "SELECT * FROM VISTA_ESTUDIANTE")
         {
             throw new NotImplementedException();
         }
