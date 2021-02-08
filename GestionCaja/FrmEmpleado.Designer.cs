@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registroDeMovimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
@@ -77,8 +76,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
-            this.estudiantesToolStripMenuItem,
-            this.registroDeMovimientoToolStripMenuItem});
+            this.estudiantesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1172, 24);
@@ -98,13 +96,6 @@
             this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.estudiantesToolStripMenuItem.Text = "Estudiantes";
             this.estudiantesToolStripMenuItem.Click += new System.EventHandler(this.estudiantesToolStripMenuItem_Click);
-            // 
-            // registroDeMovimientoToolStripMenuItem
-            // 
-            this.registroDeMovimientoToolStripMenuItem.Name = "registroDeMovimientoToolStripMenuItem";
-            this.registroDeMovimientoToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
-            this.registroDeMovimientoToolStripMenuItem.Text = "Registro de movimiento";
-            this.registroDeMovimientoToolStripMenuItem.Click += new System.EventHandler(this.registroDeMovimientoToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -473,7 +464,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem estudiantesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registroDeMovimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;

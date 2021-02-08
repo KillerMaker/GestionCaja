@@ -49,7 +49,6 @@
     <Compile Include="CEmpleado.cs" />
     <Compile Include="CEstudiante.cs" />
     <Compile Include="CPersona.cs" />
-    <Compile Include="CRegMovCaja.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,12 +67,6 @@
     <Compile Include="FrmEstudiante.Designer.cs">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegMovCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegMovCaja.Designer.cs">
-      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDataManagement.cs" />
@@ -85,9 +78,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstudiante.resx">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegMovCaja.resx">
-      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -18,12 +18,6 @@ namespace GestionCaja
         }
 
         Form formulario;
-        private void registroDeMovimientoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            formulario = new FrmRegMovCaja();
-            formulario.Show();
-            this.Hide();
-        }
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,6 +31,11 @@ namespace GestionCaja
             formulario = new Form1();
             formulario.Show();
             this.Hide();
+        }
+
+        private void FrmEstudiante_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
