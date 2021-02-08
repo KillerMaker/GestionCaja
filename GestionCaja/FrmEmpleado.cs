@@ -42,18 +42,6 @@ namespace GestionCaja
             formulario.Show();
             this.Hide();
         }
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -61,16 +49,6 @@ namespace GestionCaja
             newEmpleado.Insertar();
             dataGridView1.DataSource= CEmpleado.Visualizar();
             limpiar();
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -86,14 +64,9 @@ namespace GestionCaja
             limpiar();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CEmpleado.Visualizar();
+            //dataGridView1.DataSource = CEmpleado.Visualizar();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -148,6 +121,11 @@ namespace GestionCaja
             nudComision.Value = 0;
 
             txtNombre.Focus();
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dataGridView1.Rows.Count < 1?CEmpleado.Visualizar():dataGridView1.DataSource;
         }
     }
 }

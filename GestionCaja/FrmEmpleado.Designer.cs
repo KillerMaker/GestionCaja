@@ -134,7 +134,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insercion de Datos del empleado";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnActualizar
             // 
@@ -288,7 +287,6 @@
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Genero";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -323,7 +321,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Barra de bisqueda";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btnBuscar
             // 
@@ -343,7 +340,6 @@
             this.label12.Size = new System.Drawing.Size(31, 13);
             this.label12.TabIndex = 4;
             this.label12.Text = "Valor";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
             // 
@@ -353,7 +349,6 @@
             this.label11.Size = new System.Drawing.Size(39, 13);
             this.label11.TabIndex = 4;
             this.label11.Text = "Criterio";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
@@ -445,6 +440,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(664, 301);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // FrmEmpleado
             // 
