@@ -14,6 +14,7 @@ namespace GestionCaja
         public SqlCommand command { get; set; }
         public SqlDataReader reader { get; set; }
 
+        //Coneccion de Guillermo: "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True"
         public SqlDataManagement(string con= "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True")
         {
             try
@@ -43,7 +44,6 @@ namespace GestionCaja
         }
         public SqlDataReader ExecuteReader()
         {
-            //lalalalalalala2
             try
             {
                 connection.Open();
