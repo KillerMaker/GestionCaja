@@ -46,12 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\CDocumento.cs" />
+    <Compile Include="Entidades\CTipoDocumento.cs" />
     <Compile Include="Entidades\CEmpleado.cs" />
     <Compile Include="Entidades\CEstudiante.cs" />
-    <Compile Include="Entidades\CPago.cs" />
+    <Compile Include="Entidades\CTipoPago.cs" />
     <Compile Include="Entidades\CPersona.cs" />
-    <Compile Include="Entidades\CServicio.cs" />
+    <Compile Include="Entidades\CTipoServicio.cs" />
     <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

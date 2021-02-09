@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace GestionCaja
 {
-    class CServicio
+    class CTipoDocumento
     {
         public readonly int? id;
-        public readonly string tipoServicio;
-        public readonly string fechaServicio;
         public readonly string descripcion;
         public readonly string estado;
     }

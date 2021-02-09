@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionCaja
 {
-    class CDocumento
+    class CTipoServicio
     {
         public readonly int? id;
         public readonly string descripcion;
