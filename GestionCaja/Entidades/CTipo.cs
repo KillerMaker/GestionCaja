@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace GestionCaja.Entidades
 {
-    class CTipo
+    abstract class CTipo
     {
-       protected int? id;
-       protected string descripcion;
-       protected string estado;
+        protected int? id;
+        protected string descripcion;
+        protected string estado;
+        static protected SqlDataManagement DataManagement;
+
+        public abstract void Insertar();
+        public abstract void Eliminar();
     }
+
 }
