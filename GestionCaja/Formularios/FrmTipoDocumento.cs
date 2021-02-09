@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionCaja.Entidades;
 
 namespace GestionCaja
 {
@@ -16,7 +17,10 @@ namespace GestionCaja
         {
             InitializeComponent();
         }
-        Form formulario;
+        
+        private Form formulario;
+        private CTipoDocumento oldDocumento;
+        private CTipoDocumento newDocumento;
 
         private void FrmDocumento_Load(object sender, EventArgs e)
         {
@@ -74,12 +78,56 @@ namespace GestionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
+            newDocumento = new CTipoDocumento(rtxtDescripcion.Text, cmbEstado.Text);
+            newDocumento.Insertar();
 
+            dataGridView1.DataSource = CTipoDocumento.Visualizar();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnActualizar2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                MessageBox.Show("Seleccione un elemento para actualizar", "Error al actualizar");
+
+            else if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento por favor", "Error al actualizar");
+
+            else
+            {
+                btnActualizar.Enabled = true;
+                btnInsertar.Enabled = false;
+
+                DataGridViewRow row = new DataGridViewRow();
+                row = dataGridView1.SelectedRows[0];
+
+                oldDocumento = new CTipoDocumento(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+
+                rtxtDescripcion.Text = oldDocumento.descripcion;
+                cmbEstado.Text = oldDocumento.estado;
+
+                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+            }
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            newDocumento = new CTipoDocumento(rtxtDescripcion.Text, cmbEstado.Text);
+            CTipoDocumento.Actualizar(oldDocumento, newDocumento);
+
+            btnInsertar.Enabled = true;
+            btnActualizar.Enabled = false;
+            dataGridView1.DataSource= CTipoDocumento.Visualizar();
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoDocumento.Visualizar() : dataGridView1.DataSource;
         }
     }
 }

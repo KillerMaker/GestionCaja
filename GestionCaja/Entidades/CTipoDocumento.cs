@@ -34,18 +34,20 @@ namespace GestionCaja.Entidades
             DataManagement = new SqlDataManagement();
             DataManagement.ExecuteCommand($"INSERTA_TIPO_DOCUMENTO '{descripcion}','{estado}'");
         }
-        public static DataTable Visualizar(string consulta="SELECT * FROM VISTA_TIPO_DOCUMENTO")
+        public static DataTable Visualizar(string consulta="SELECT * FROM TIPO_DOCUMENTO")
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new DataTable()
+                ;
             DataManagement = new SqlDataManagement();
             DataManagement.ExecuteCommand(consulta);
+            DataManagement.ExecuteReader();
 
             dataTable.Columns.Add("ID");
             dataTable.Columns.Add("Descripcion");
             dataTable.Columns.Add("Estado");
 
             while (DataManagement.reader.Read())
-                dataTable.Rows.Add(DataManagement.reader["ID"], DataManagement.reader["DESCRIPCION"], DataManagement.reader["ESTADO"]);
+                dataTable.Rows.Add(DataManagement.reader["ID_TIPO_DOCUMENTO"], DataManagement.reader["DESCRIPCION"], DataManagement.reader["ESTADO"]);
 
             return dataTable;
         }

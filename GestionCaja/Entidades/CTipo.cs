@@ -9,8 +9,8 @@ namespace GestionCaja.Entidades
     abstract class CTipo
     {
         protected int? id;
-        protected string descripcion;
-        protected string estado;
+        public string descripcion { get; protected set; }
+        public string estado { get; protected set;}
         static protected SqlDataManagement DataManagement;
 
         public abstract void Insertar();

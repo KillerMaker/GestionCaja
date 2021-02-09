@@ -40,24 +40,24 @@
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.btnInsertar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnInsertar = new System.Windows.Forms.Button();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.rtxtDescripcion = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnActualizar2 = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.cmbCampo = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbCriterio = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbCriterio = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbCampo = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnActualizar2 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -168,39 +168,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Tipo de Documento";
             // 
-            // label1
+            // btnActualizar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descripcion";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 192);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Estado";
-            // 
-            // rtxtDescripcion
-            // 
-            this.rtxtDescripcion.Location = new System.Drawing.Point(85, 32);
-            this.rtxtDescripcion.Name = "rtxtDescripcion";
-            this.rtxtDescripcion.Size = new System.Drawing.Size(258, 129);
-            this.rtxtDescripcion.TabIndex = 2;
-            this.rtxtDescripcion.Text = "";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(85, 192);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(258, 21);
-            this.cmbEstado.TabIndex = 3;
+            this.btnActualizar.Enabled = false;
+            this.btnActualizar.Location = new System.Drawing.Point(226, 256);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 5;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnInsertar
             // 
@@ -212,14 +189,39 @@
             this.btnInsertar.UseVisualStyleBackColor = true;
             this.btnInsertar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnActualizar
+            // cmbEstado
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(226, 256);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(85, 192);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(258, 21);
+            this.cmbEstado.TabIndex = 3;
+            // 
+            // rtxtDescripcion
+            // 
+            this.rtxtDescripcion.Location = new System.Drawing.Point(85, 32);
+            this.rtxtDescripcion.Name = "rtxtDescripcion";
+            this.rtxtDescripcion.Size = new System.Drawing.Size(258, 129);
+            this.rtxtDescripcion.TabIndex = 2;
+            this.rtxtDescripcion.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 192);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Estado";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripcion";
             // 
             // groupBox2
             // 
@@ -237,6 +239,66 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Barra de Busqueda";
             // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(334, 19);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(133, 20);
+            this.txtValor.TabIndex = 7;
+            this.txtValor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(288, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Valor";
+            // 
+            // cmbCriterio
+            // 
+            this.cmbCriterio.FormattingEnabled = true;
+            this.cmbCriterio.Location = new System.Drawing.Point(214, 19);
+            this.cmbCriterio.Name = "cmbCriterio";
+            this.cmbCriterio.Size = new System.Drawing.Size(62, 21);
+            this.cmbCriterio.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(168, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Citerio";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Campo";
+            // 
+            // cmbCampo
+            // 
+            this.cmbCampo.FormattingEnabled = true;
+            this.cmbCampo.Location = new System.Drawing.Point(52, 19);
+            this.cmbCampo.Name = "cmbCampo";
+            this.cmbCampo.Size = new System.Drawing.Size(105, 21);
+            this.cmbCampo.TabIndex = 6;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(480, 19);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnActualizar2);
@@ -249,13 +311,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos";
             // 
-            // dataGridView1
+            // btnActualizar2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(549, 179);
-            this.dataGridView1.TabIndex = 0;
+            this.btnActualizar2.Location = new System.Drawing.Point(325, 214);
+            this.btnActualizar2.Name = "btnActualizar2";
+            this.btnActualizar2.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar2.TabIndex = 2;
+            this.btnActualizar2.Text = "Actualizar";
+            this.btnActualizar2.UseVisualStyleBackColor = true;
+            this.btnActualizar2.Click += new System.EventHandler(this.btnActualizar2_Click);
             // 
             // btnEliminar
             // 
@@ -266,74 +330,14 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnActualizar2
+            // dataGridView1
             // 
-            this.btnActualizar2.Location = new System.Drawing.Point(325, 214);
-            this.btnActualizar2.Name = "btnActualizar2";
-            this.btnActualizar2.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar2.TabIndex = 2;
-            this.btnActualizar2.Text = "Actualizar";
-            this.btnActualizar2.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(480, 19);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // cmbCampo
-            // 
-            this.cmbCampo.FormattingEnabled = true;
-            this.cmbCampo.Location = new System.Drawing.Point(52, 19);
-            this.cmbCampo.Name = "cmbCampo";
-            this.cmbCampo.Size = new System.Drawing.Size(105, 21);
-            this.cmbCampo.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Campo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(168, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Citerio";
-            // 
-            // cmbCriterio
-            // 
-            this.cmbCriterio.FormattingEnabled = true;
-            this.cmbCriterio.Location = new System.Drawing.Point(214, 19);
-            this.cmbCriterio.Name = "cmbCriterio";
-            this.cmbCriterio.Size = new System.Drawing.Size(62, 21);
-            this.cmbCriterio.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(288, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Valor";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(334, 19);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(133, 20);
-            this.txtValor.TabIndex = 7;
-            this.txtValor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(549, 179);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // FrmTipoDocumento
             // 
