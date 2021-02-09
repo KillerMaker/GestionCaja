@@ -129,5 +129,30 @@ namespace GestionCaja
         {
             dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoDocumento.Visualizar() : dataGridView1.DataSource;
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = CTipoDocumento.Visualizar($"SELECT * FROM TIPO_DOCUMENTO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+                MessageBox.Show("Seleccione un elemento para actualizar", "Error al actualizar");
+
+            else if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento por favor", "Error al actualizar");
+
+            else
+            {
+
+                DataGridViewRow row = new DataGridViewRow();
+                row = dataGridView1.SelectedRows[0];
+
+                oldDocumento = new CTipoDocumento(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+                oldDocumento.Eliminar();
+                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+            }
+        }
     }
 }
