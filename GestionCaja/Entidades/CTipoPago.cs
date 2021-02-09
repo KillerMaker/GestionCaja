@@ -4,12 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionCaja
+namespace GestionCaja.Entidades
 {
-    class CTipoPago
+    class CTipoPago:CTipo
     {
-        public readonly int? id;
-        public readonly string descripcion;
-        public readonly string estado;
+
+        public CTipoPago(string descripcion, string estado)
+        {
+            id = null;
+            this.descripcion = descripcion;
+            this.estado = estado;
+        }
+        public CTipoPago(int id, string descripcion, string estado)
+        {
+            this.id = id;
+            this.descripcion = descripcion;
+            this.estado = estado;
+        }
     }
 }

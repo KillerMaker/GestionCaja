@@ -1,15 +1,25 @@
-﻿using System;
+﻿using GestionCaja.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionCaja
+namespace GestionCaja.Entidades
 {
-    class CTipoServicio
+    class CTipoServicio:CTipo
     {
-        public readonly int? id;
-        public readonly string descripcion;
-        public readonly string estado;
+        public CTipoServicio(string descripcion, string estado)
+        {
+            id = null;
+            this.descripcion = descripcion;
+            this.estado = estado;
+        }
+        public CTipoServicio(int id, string descripcion, string estado)
+        {
+            this.id = id;
+            this.descripcion = descripcion;
+            this.estado = estado;
+        }
     }
 }

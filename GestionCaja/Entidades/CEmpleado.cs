@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 
 
-namespace GestionCaja
+namespace GestionCaja.Entidades
 {
     //Clase CEmpleado la cual hereda de la clase CPersona
    public class CEmpleado:CPersona

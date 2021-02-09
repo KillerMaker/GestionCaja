@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionCaja
+namespace GestionCaja.Entidades
 {
     //Clase CEstudiante hereda de CPersona
    public class CEstudiante:CPersona
