@@ -56,7 +56,7 @@ namespace GestionCaja.Entidades
         public static void Actualizar(CTipoPago oldPago, CTipoPago newPago)
         {
             DataManagement = new SqlDataManagement();
-            DataManagement.ExecuteCommand($"UPDATE TIPO_DOCUMENTO SET DESCRIPCION='{newPago.descripcion}',ESTADO='{newPago.estado}' WHERE ID_TIPO_SERVICIO={oldPago.id}");
+            DataManagement.ExecuteCommand($"UPDATE TIPO_DOCUMENTO SET DESCRIPCION='{newPago.descripcion}',ESTADO='{newPago.estado}' WHERE ID_TIPO_PAGO={oldPago.id}");
         }
     }
 }
