@@ -10,3 +10,6 @@ C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.cs
 C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.CoreCompileInputs.cache
 C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.exe
 C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
+C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoDocumento.resources
+C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoPago.resources
+C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoServicio.resources

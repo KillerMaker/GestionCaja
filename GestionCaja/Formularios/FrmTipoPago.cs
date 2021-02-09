@@ -10,21 +10,20 @@ using System.Windows.Forms;
 
 namespace GestionCaja
 {
-    public partial class Form1 : Form
+    public partial class FrmTipoPago : Form
     {
-        
-        public Form1()
+        public FrmTipoPago()
         {
             InitializeComponent();
         }
-
         Form formulario;
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void FrmPago_Load(object sender, EventArgs e)
         {
 
         }
-
+        //MENU
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             formulario = new FrmEstudiante();

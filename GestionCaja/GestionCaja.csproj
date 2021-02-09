@@ -58,11 +58,11 @@
     <Compile Include="Formularios\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmDocumento.cs">
+    <Compile Include="Formularios\FrmTipoDocumento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmDocumento.Designer.cs">
-      <DependentUpon>FrmDocumento.cs</DependentUpon>
+    <Compile Include="Formularios\FrmTipoDocumento.Designer.cs">
+      <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmEmpleado.cs">
       <SubType>Form</SubType>
@@ -76,17 +76,17 @@
     <Compile Include="Formularios\FrmEstudiante.Designer.cs">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmPago.cs">
+    <Compile Include="Formularios\FrmTipoPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmPago.Designer.cs">
-      <DependentUpon>FrmPago.cs</DependentUpon>
+    <Compile Include="Formularios\FrmTipoPago.Designer.cs">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FrmServicio.cs">
+    <Compile Include="Formularios\FrmTipoServicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FrmServicio.Designer.cs">
-      <DependentUpon>FrmServicio.cs</DependentUpon>
+    <Compile Include="Formularios\FrmTipoServicio.Designer.cs">
+      <DependentUpon>FrmTipoServicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +99,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmEstudiante.resx">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTipoDocumento.resx">
+      <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTipoPago.resx">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTipoServicio.resx">
+      <DependentUpon>FrmTipoServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
