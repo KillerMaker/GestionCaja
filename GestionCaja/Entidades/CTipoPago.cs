@@ -30,7 +30,7 @@ namespace GestionCaja.Entidades
         public override void Eliminar()
         {
             DataManagement = new SqlDataManagement();
-            DataManagement.ExecuteCommand($"UPDATE TIPO_PAGO SET DESCRIPCION='{descripcion}',ESTADO='{estado}'");
+            DataManagement.ExecuteCommand($"UPDATE TIPO_PAGO SET ESTADO='Inactivo' WHERE ID_TIPO_PAGO= {id}");
         }
 
         public override void Insertar()
@@ -43,20 +43,22 @@ namespace GestionCaja.Entidades
             DataTable dataTable = new DataTable();
             DataManagement = new SqlDataManagement();
             DataManagement.ExecuteCommand(consulta);
+            DataManagement.ExecuteReader();
 
             dataTable.Columns.Add("ID");
             dataTable.Columns.Add("Descripcion");
             dataTable.Columns.Add("Estado");
 
             while (DataManagement.reader.Read())
-                dataTable.Rows.Add(DataManagement.reader["ID"], DataManagement.reader["DESCRIPCION"], DataManagement.reader["ESTADO"]);
+                dataTable.Rows.Add(DataManagement.reader["ID_TIPO_PAGO"], DataManagement.reader["DESCRIPCION"], DataManagement.reader["ESTADO"]);
 
             return dataTable;
         }
         public static void Actualizar(CTipoPago oldPago, CTipoPago newPago)
         {
             DataManagement = new SqlDataManagement();
-            DataManagement.ExecuteCommand($"UPDATE TIPO_DOCUMENTO SET DESCRIPCION='{newPago.descripcion}',ESTADO='{newPago.estado}' WHERE ID_TIPO_PAGO={oldPago.id}");
+            DataManagement.ExecuteCommand($"UPDATE TIPO_PAGO SET DESCRIPCION='{newPago.descripcion}',ESTADO='{newPago.estado}' WHERE ID_TIPO_PAGO={oldPago.id}");
         }
+
     }
 }
