@@ -1,0 +1,2 @@
+
+UPDATE TIPO_PAGO SET ESTADO='Activo'
