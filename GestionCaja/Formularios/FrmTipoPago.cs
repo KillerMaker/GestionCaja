@@ -70,5 +70,16 @@ namespace GestionCaja
             formulario.Show();
             Hide();
         }
+
+        private void limpiar()
+        {
+            rtxtDescripcion.Clear();
+            cmbEstado.Text = "";
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
     }
 }

@@ -187,5 +187,10 @@ namespace GestionCaja
             dataGridView1.DataSource = CEstudiante.Visualizar();
             limpiar();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
     }
 }
