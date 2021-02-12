@@ -124,7 +124,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Enabled = false;
-            this.btnActualizar.Location = new System.Drawing.Point(215, 426);
+            this.btnActualizar.Location = new System.Drawing.Point(220, 426);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 15;
@@ -144,10 +144,14 @@
             // 
             // cmbGenero
             // 
+            this.cmbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Location = new System.Drawing.Point(149, 111);
+            this.cmbGenero.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.cmbGenero.Location = new System.Drawing.Point(369, 111);
             this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(261, 21);
+            this.cmbGenero.Size = new System.Drawing.Size(41, 21);
             this.cmbGenero.TabIndex = 13;
             // 
             // mtxtFechaIngreso
@@ -354,6 +358,7 @@
             // 
             // cmbCriterio
             // 
+            this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriterio.FormattingEnabled = true;
             this.cmbCriterio.Items.AddRange(new object[] {
             "=",
@@ -369,6 +374,7 @@
             // 
             // cmbCampo
             // 
+            this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
             this.cmbCampo.Items.AddRange(new object[] {
             "NOMBRE",

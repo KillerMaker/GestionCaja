@@ -131,10 +131,32 @@
             // 
             // cmbCarrera
             // 
+            this.cmbCarrera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarrera.FormattingEnabled = true;
-            this.cmbCarrera.Location = new System.Drawing.Point(149, 191);
+            this.cmbCarrera.Items.AddRange(new object[] {
+            "ISO",
+            "INF",
+            "INE",
+            "IEL",
+            "IND",
+            "ADM",
+            "ATH",
+            "CDG",
+            "CON",
+            "DER",
+            "DIN",
+            "DIG",
+            "FIN",
+            "LES",
+            "LIE",
+            "LMS",
+            "MER",
+            "NIN",
+            "PUB",
+            "TAF"});
+            this.cmbCarrera.Location = new System.Drawing.Point(371, 191);
             this.cmbCarrera.Name = "cmbCarrera";
-            this.cmbCarrera.Size = new System.Drawing.Size(261, 21);
+            this.cmbCarrera.Size = new System.Drawing.Size(39, 21);
             this.cmbCarrera.TabIndex = 16;
             // 
             // btnActualizar
@@ -160,10 +182,14 @@
             // 
             // cmbGenero
             // 
+            this.cmbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Location = new System.Drawing.Point(149, 111);
+            this.cmbGenero.Items.AddRange(new object[] {
+            "M",
+            "F"});
+            this.cmbGenero.Location = new System.Drawing.Point(371, 111);
             this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(261, 21);
+            this.cmbGenero.Size = new System.Drawing.Size(39, 21);
             this.cmbGenero.TabIndex = 13;
             // 
             // mtxtFechaIngreso
@@ -315,6 +341,7 @@
             // 
             // cmbCriterio
             // 
+            this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriterio.FormattingEnabled = true;
             this.cmbCriterio.Items.AddRange(new object[] {
             "=",
@@ -330,6 +357,7 @@
             // 
             // cmbCampo
             // 
+            this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
             this.cmbCampo.Items.AddRange(new object[] {
             "NOMBRE",
