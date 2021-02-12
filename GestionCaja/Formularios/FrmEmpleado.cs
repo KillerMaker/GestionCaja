@@ -118,7 +118,7 @@ namespace GestionCaja
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = CEmpleado.Visualizar();
+            dataGridView1.DataSource = CEmpleado.Visualizar();
         }
 
         //Boton de busqueda personalizada
