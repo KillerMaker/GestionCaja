@@ -85,6 +85,7 @@ namespace GestionCaja
 
             newEstudiante.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
             dataGridView1.DataSource = CEstudiante.Visualizar();//Viasualiza los cambios en el Dtgv
+            MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion correcta");
             limpiar();//Limpia el atributo .Text de todos los controles de entrada
         }
 
@@ -103,8 +104,9 @@ namespace GestionCaja
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
                 oldEstudiante = new CEstudiante(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString());
-
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.", "Eliminacion correcta");
                 oldEstudiante.Eliminar();
+                dataGridView1.DataSource = CEstudiante.Visualizar();
             }
         }
 
@@ -161,9 +163,9 @@ namespace GestionCaja
             mtxtCedula.Clear();
             mtxtFechaIngreso.Clear();
             mtxtFechaNac.Clear();
-            cmbGenero.Text = "";
-            cmbCarrera.Text = "";
-            cmbEstado.Text = "";
+            cmbGenero.SelectedItem = null;
+            cmbCarrera.SelectedItem = null;
+            cmbEstado.SelectedItem = null;
 
             txtNombre.Focus();
         }
@@ -185,12 +187,18 @@ namespace GestionCaja
             mtxtFechaNac.Enabled = true;
 
             dataGridView1.DataSource = CEstudiante.Visualizar();
+            MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion correcta");
             limpiar();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

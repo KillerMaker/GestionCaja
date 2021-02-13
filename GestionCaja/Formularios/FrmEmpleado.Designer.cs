@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEstado = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.nudComision = new System.Windows.Forms.NumericUpDown();
             this.mtxtCedula = new System.Windows.Forms.MaskedTextBox();
             this.mtxtFechaNac = new System.Windows.Forms.MaskedTextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtSueldo = new System.Windows.Forms.TextBox();
             this.txtLaboral = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -83,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnActualizar);
             this.groupBox1.Controls.Add(this.btnInsertar);
@@ -91,7 +92,6 @@
             this.groupBox1.Controls.Add(this.nudComision);
             this.groupBox1.Controls.Add(this.mtxtCedula);
             this.groupBox1.Controls.Add(this.mtxtFechaNac);
-            this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.txtSueldo);
             this.groupBox1.Controls.Add(this.txtLaboral);
             this.groupBox1.Controls.Add(this.txtNombre);
@@ -110,6 +110,18 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insercion de Datos del empleado";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtEstado.FormattingEnabled = true;
+            this.txtEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.txtEstado.Location = new System.Drawing.Point(274, 373);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(136, 21);
+            this.txtEstado.TabIndex = 17;
             // 
             // btnLimpiar
             // 
@@ -187,13 +199,6 @@
             this.mtxtFechaNac.TabIndex = 9;
             this.mtxtFechaNac.ValidatingType = typeof(System.DateTime);
             // 
-            // txtEstado
-            // 
-            this.txtEstado.Location = new System.Drawing.Point(149, 370);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(261, 20);
-            this.txtEstado.TabIndex = 8;
-            // 
             // txtSueldo
             // 
             this.txtSueldo.Location = new System.Drawing.Point(149, 325);
@@ -220,9 +225,10 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 373);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 5;
-            this.label9.Text = "estado";
+            this.label9.Text = "Estado";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label8
             // 
@@ -310,7 +316,7 @@
             this.groupBox2.Size = new System.Drawing.Size(681, 57);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Barra de bisqueda";
+            this.groupBox2.Text = "Barra de busqueda";
             // 
             // btnBuscar
             // 
@@ -561,7 +567,6 @@
         private System.Windows.Forms.NumericUpDown nudComision;
         private System.Windows.Forms.MaskedTextBox mtxtCedula;
         private System.Windows.Forms.MaskedTextBox mtxtFechaNac;
-        private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.TextBox txtLaboral;
         private System.Windows.Forms.TextBox txtNombre;
@@ -595,5 +600,6 @@
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.ComboBox txtEstado;
     }
 }

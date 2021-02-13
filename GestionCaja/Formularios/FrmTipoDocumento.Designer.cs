@@ -203,7 +203,11 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
             this.cmbEstado.Location = new System.Drawing.Point(85, 192);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(258, 21);
@@ -270,6 +274,7 @@
             // 
             // cmbCriterio
             // 
+            this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriterio.FormattingEnabled = true;
             this.cmbCriterio.Location = new System.Drawing.Point(214, 19);
             this.cmbCriterio.Name = "cmbCriterio";
@@ -296,6 +301,7 @@
             // 
             // cmbCampo
             // 
+            this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
             this.cmbCampo.Location = new System.Drawing.Point(52, 19);
             this.cmbCampo.Name = "cmbCampo";

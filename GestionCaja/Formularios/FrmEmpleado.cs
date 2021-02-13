@@ -92,6 +92,7 @@ namespace GestionCaja
 
             newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
             dataGridView1.DataSource= CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
+            MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
             limpiar();//Limpia el atributo .Text de todos los controles de entrada
         }
 
@@ -113,6 +114,7 @@ namespace GestionCaja
             mtxtFechaNac.Enabled = true;
 
             dataGridView1.DataSource = CEmpleado.Visualizar();
+            MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion Correcta");
             limpiar();
         }
 
@@ -170,7 +172,7 @@ namespace GestionCaja
         private void limpiar()
         {
             //Se resetea el atributo .Text a todos los controles de entrada del formulario
-            txtEstado.Clear();
+            txtEstado.SelectedItem = null;
             txtLaboral.Clear();
             txtNombre.Clear();
             txtSueldo.Clear();
@@ -179,7 +181,7 @@ namespace GestionCaja
             mtxtFechaIngreso.Clear();
             mtxtFechaNac.Clear();
             nudComision.Value = 0;
-            cmbGenero.Text = "";
+            cmbGenero.SelectedItem = null;
 
             txtNombre.Focus();
         }
@@ -207,6 +209,7 @@ namespace GestionCaja
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
                 oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), decimal.Parse(row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()));
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.", "Eliminacion Correcta");
                 oldEmpleado.Eliminar();
             }
         }
@@ -214,6 +217,11 @@ namespace GestionCaja
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

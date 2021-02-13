@@ -114,7 +114,11 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
             this.cmbEstado.Location = new System.Drawing.Point(274, 281);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(136, 21);
@@ -154,9 +158,9 @@
             "NIN",
             "PUB",
             "TAF"});
-            this.cmbCarrera.Location = new System.Drawing.Point(371, 191);
+            this.cmbCarrera.Location = new System.Drawing.Point(362, 191);
             this.cmbCarrera.Name = "cmbCarrera";
-            this.cmbCarrera.Size = new System.Drawing.Size(39, 21);
+            this.cmbCarrera.Size = new System.Drawing.Size(48, 21);
             this.cmbCarrera.TabIndex = 16;
             // 
             // btnActualizar
@@ -504,6 +508,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // FrmEstudiante
             // 

@@ -82,12 +82,17 @@ namespace GestionCaja
         private void limpiar()
         {
             rtxtDescripcion.Clear();
-            cmbEstado.Text = "";
+            cmbEstado.SelectedItem = null;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
