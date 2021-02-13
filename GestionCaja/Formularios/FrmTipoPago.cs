@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestionCaja.Entidades;
 
 namespace GestionCaja
 {
@@ -18,8 +17,6 @@ namespace GestionCaja
             InitializeComponent();
         }
         Form formulario;
-        CTipoPago newTipoPago;
-        CTipoPago oldTipoPago;
 
 
         private void FrmPago_Load(object sender, EventArgs e)
@@ -74,78 +71,15 @@ namespace GestionCaja
             Hide();
         }
 
-        private void btnInsertar_Click(object sender, EventArgs e)
+        private void limpiar()
         {
-            newTipoPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
-            newTipoPago.Insertar();
-
-            dataGridView1.DataSource = CTipoPago.Visualizar();
+            rtxtDescripcion.Clear();
+            cmbEstado.Text = "";
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            newTipoPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
-            CTipoPago.Actualizar(oldTipoPago, newTipoPago);
-
-            btnInsertar.Enabled = true;
-            btnActualizar.Enabled = false;
-            dataGridView1.DataSource =CTipoPago.Visualizar();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-                MessageBox.Show("Seleccione un elemento para actualizar", "Error al Eliminar");
-
-            else if (dataGridView1.SelectedRows.Count > 1)
-                MessageBox.Show("Seleccione solo un elemento por favor", "Error al Eliminar");
-
-            else
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row = dataGridView1.SelectedRows[0];
-
-                oldTipoPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
-                oldTipoPago.Eliminar();
-                dataGridView1.DataSource = CTipoPago.Visualizar();
-            }
-        }
-
-        private void btnActualizar2_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-                MessageBox.Show("Seleccione un elemento para actualizar", "Error al actualizar");
-
-            else if (dataGridView1.SelectedRows.Count > 1)
-                MessageBox.Show("Seleccione solo un elemento por favor", "Error al actualizar");
-
-            else
-            {
-                btnActualizar.Enabled = true;
-                btnInsertar.Enabled = false;
-
-                DataGridViewRow row = new DataGridViewRow();
-                row = dataGridView1.SelectedRows[0];
-
-                oldTipoPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
-
-                rtxtDescripcion.Text = oldTipoPago.descripcion;
-                cmbEstado.Text = oldTipoPago.estado;
-
-                dataGridView1.DataSource = CTipoPago.Visualizar();
-            }
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = CTipoPago.Visualizar($"SELECT * FROM TIPO_PAGO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
-
-        }
-
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoPago.Visualizar() : dataGridView1.DataSource;
-
+            limpiar();
         }
     }
 }
