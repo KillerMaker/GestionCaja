@@ -77,6 +77,7 @@ namespace GestionCaja
         {
             rtxtDescripcion.Clear();
             cmbEstado.SelectedItem = null;
+            rtxtDescripcion.Focus();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -104,8 +105,11 @@ namespace GestionCaja
                 oldPago.Eliminar();
 
                 dataGridView1.DataSource = CTipoPago.Visualizar();
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.");
+                limpiar();
+
             }
-               
+
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
@@ -113,6 +117,8 @@ namespace GestionCaja
             newPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
             newPago.Insertar();
             dataGridView1.DataSource = CTipoPago.Visualizar();
+
+            MessageBox.Show("Se ha insertado un nuevo tipo de Pago", "Insercion Correcta");
             limpiar();
         }
 
@@ -158,6 +164,7 @@ namespace GestionCaja
             btnInsertar.Enabled = true;
             btnActualizar2.Enabled = true;
 
+            MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
             limpiar();
         }
 

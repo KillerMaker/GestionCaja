@@ -57,7 +57,7 @@ namespace GestionCaja
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error al leer datos de la base de datos");
-                throw new NotImplementedException();
+                return reader;
             }
         }
         

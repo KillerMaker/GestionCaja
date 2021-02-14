@@ -123,7 +123,10 @@ namespace GestionCaja
 
             btnInsertar.Enabled = true;
             btnActualizar.Enabled = false;
+            btnActualizar2.Enabled = true;
+
             MessageBox.Show("Se ha actualizado el tipo de documento", "Actualizacion Correcta");
+            limpiar();
             dataGridView1.DataSource= CTipoDocumento.Visualizar();
         }
 
@@ -152,7 +155,7 @@ namespace GestionCaja
                 row = dataGridView1.SelectedRows[0];
 
                 oldDocumento = new CTipoDocumento(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
-                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.");
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.","Cambio Correcto");
                 oldDocumento.Eliminar();
                 dataGridView1.DataSource = CTipoDocumento.Visualizar();
             }
@@ -162,6 +165,7 @@ namespace GestionCaja
         {
             rtxtDescripcion.Clear();
             cmbEstado.SelectedItem = null;
+            rtxtDescripcion.Focus();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

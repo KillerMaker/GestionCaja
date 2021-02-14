@@ -276,6 +276,13 @@
             // 
             this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriterio.FormattingEnabled = true;
+            this.cmbCriterio.Items.AddRange(new object[] {
+            "=",
+            "!=",
+            "<",
+            ">",
+            "<=",
+            ">="});
             this.cmbCriterio.Location = new System.Drawing.Point(214, 19);
             this.cmbCriterio.Name = "cmbCriterio";
             this.cmbCriterio.Size = new System.Drawing.Size(62, 21);
@@ -303,6 +310,10 @@
             // 
             this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
+            this.cmbCampo.Items.AddRange(new object[] {
+            "ID_TIPO_DOCUMENTO",
+            "DESCRIPCION",
+            "ESTADO"});
             this.cmbCampo.Location = new System.Drawing.Point(52, 19);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(105, 21);
