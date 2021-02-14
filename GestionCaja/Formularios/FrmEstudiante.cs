@@ -71,12 +71,13 @@ namespace GestionCaja
             Hide();
         }
 
-
-
         private void FrmEstudiante_Load(object sender, EventArgs e)
         {
 
         }
+
+
+
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {

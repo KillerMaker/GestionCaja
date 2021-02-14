@@ -73,6 +73,8 @@ namespace GestionCaja
             Hide();
         }
 
+
+
         private void limpiar()
         {
             rtxtDescripcion.Clear();
@@ -104,8 +106,8 @@ namespace GestionCaja
                 oldPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()),row.Cells[1].Value.ToString(),row.Cells[2].Value.ToString());
                 oldPago.Eliminar();
 
-                dataGridView1.DataSource = CTipoPago.Visualizar();
                 MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.");
+                dataGridView1.DataSource = CTipoPago.Visualizar();
                 limpiar();
 
             }
@@ -135,14 +137,16 @@ namespace GestionCaja
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 btnInsertar.Enabled = false;
                 btnActualizar2.Enabled = false;
-
-
+                btnActualizar.Enabled = true;
 
                 oldPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
 
-                //cmbEstado.SelectedItem = from ComboBox.ObjectCollection item in cmbEstado.Items where cmbEstado.Items.ToString().Contains(oldPago.estado) select item;
+                /*cmbEstado.SelectedItem = from ComboBox.ObjectCollection item in cmbEstado.Items 
+                                         * where cmbEstado.Items.ToString().Contains(oldPago.estado)
+                                           select item;  */
+
                 //cmbCampo.SelectedIndex = oldPago.estado == "Activo" ? 0 : -1;
-                //cmbCampo.SelectedItem=cmbCampo.Items.
+
                 rtxtDescripcion.Text = oldPago.descripcion;
                 cmbEstado.Text = oldPago.estado;
             }

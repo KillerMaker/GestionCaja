@@ -379,6 +379,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmTipoServicio";
             this.Text = "FrmServicio";
+            this.Load += new System.EventHandler(this.FrmTipoServicio_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);

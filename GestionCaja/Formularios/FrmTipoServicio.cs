@@ -83,6 +83,8 @@ namespace GestionCaja
             Hide();
         }
 
+
+
         private void limpiar()
         {
             rtxtDescripcion.Clear();
@@ -169,6 +171,11 @@ namespace GestionCaja
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = CTipoServicio.Visualizar($"SELECT * FROM TIPO_SERVICIO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+        }
+
+        private void FrmTipoServicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
