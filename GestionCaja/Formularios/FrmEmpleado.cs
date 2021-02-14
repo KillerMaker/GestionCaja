@@ -21,8 +21,6 @@ namespace GestionCaja
         {
             InitializeComponent();
         }
-
-        //Menu
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
@@ -120,7 +118,7 @@ namespace GestionCaja
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CEmpleado.Visualizar();
+            //dataGridView1.DataSource = CEmpleado.Visualizar();
         }
 
         //Boton de busqueda personalizada

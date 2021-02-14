@@ -26,7 +26,7 @@ namespace GestionCaja.Entidades
         public override void Eliminar()
         {
             DataManagement = new SqlDataManagement();
-            DataManagement.ExecuteCommand($"UPDATE TIPO_SERVICIO SET DESCRIPCION='{descripcion}',ESTADO='{estado}'");
+            DataManagement.ExecuteCommand($"UPDATE TIPO_SERVICIO SET ESTADO='Inactivo' WHERE ID_TIPO_SERVICIO={id}");
         }
 
         public override void Insertar()

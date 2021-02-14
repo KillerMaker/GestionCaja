@@ -30,7 +30,7 @@ namespace GestionCaja.Entidades
         public override void Eliminar()
         {
             DataManagement = new SqlDataManagement();
-            DataManagement.ExecuteCommand($"UPDATE TIPO_PAGO SET ESTADO='Inactivo' WHERE ID_TIPO_PAGO= {id}");
+            DataManagement.ExecuteCommand($"UPDATE TIPO_PAGO SET ESTADO ='Inactivo' WHERE ID_TIPO_PAGO = {id}");
         }
 
         public override void Insertar()
