@@ -15,7 +15,7 @@ namespace GestionCaja
         public SqlCommand command { get; set; }
         public SqlDataReader reader { get; set; }
 
-        //Coneccion de Guillermo: "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True"
+        //Conexion de Guillermo: "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True"
         //Conexion de Amauris: "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJA;Persist Security Info=True;User ID=sa;Password=Gabriel123"
         public SqlDataManagement(string con= "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True")
         {
@@ -57,7 +57,7 @@ namespace GestionCaja
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error al leer datos de la base de datos");
-                throw new NotImplementedException();
+                return reader;
             }
         }
         

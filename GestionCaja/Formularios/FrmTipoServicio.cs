@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionCaja.Entidades;
 
 namespace GestionCaja
 {
@@ -17,7 +18,10 @@ namespace GestionCaja
             InitializeComponent();
         }
 
+        CTipoServicio oldServicio;
+        CTipoServicio newServicio;
         Form formulario;
+        
 
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -79,6 +83,8 @@ namespace GestionCaja
             Hide();
         }
 
+
+
         private void limpiar()
         {
             rtxtDescripcion.Clear();
@@ -91,6 +97,83 @@ namespace GestionCaja
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            newServicio = new CTipoServicio(rtxtDescripcion.Text, cmbEstado.Text);
+            CTipoServicio.Actualizar(oldServicio, newServicio);
+            dataGridView1.DataSource = CTipoServicio.Visualizar();
+
+            MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
+            limpiar();
+
+            btnActualizar.Enabled = false;
+            btnActualizar2.Enabled = true;
+            btnInsertar.Enabled = true;
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            newServicio = new CTipoServicio(rtxtDescripcion.Text, cmbEstado.Text);
+            newServicio.Insertar();
+
+            MessageBox.Show("Se ha insertado un nuevo tipo de Servicio", "Insercion Correcta");
+            limpiar();
+            dataGridView1.DataSource = CTipoServicio.Visualizar();
+        }
+
+        private void btnActualizar2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento", "Error en la insercion de datos");
+
+            else if (dataGridView1.SelectedRows.Count < 1)
+                MessageBox.Show("Seleccione un elemento", "Error en la insercion de datos");
+
+            else
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                oldServicio = new CTipoServicio(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+
+                rtxtDescripcion.Text = oldServicio.descripcion;
+                cmbEstado.Text = oldServicio.estado;
+
+                btnActualizar.Enabled = true;
+                btnInsertar.Enabled = false;
+                btnActualizar2.Enabled = false;
+            }
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoServicio.Visualizar() : dataGridView1.DataSource;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento", "Error en la insercion de datos");
+
+            else if (dataGridView1.SelectedRows.Count < 1)
+                MessageBox.Show("Seleccione un elemento", "Error en la insercion de datos");
+
+            else
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                oldServicio = new CTipoServicio(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+                oldServicio.Eliminar();
+
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.","Cambio Correcto");
+                dataGridView1.DataSource = CTipoServicio.Visualizar();
+                limpiar();
+            }
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = CTipoServicio.Visualizar($"SELECT * FROM TIPO_SERVICIO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+        }
+
+        private void FrmTipoServicio_Load(object sender, EventArgs e)
         {
 
         }

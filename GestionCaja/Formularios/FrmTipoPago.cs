@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionCaja.Entidades;
 
 namespace GestionCaja
 {
@@ -17,7 +18,8 @@ namespace GestionCaja
             InitializeComponent();
         }
         Form formulario;
-
+        CTipoPago oldPago;
+        CTipoPago newPago;
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
@@ -71,10 +73,13 @@ namespace GestionCaja
             Hide();
         }
 
+
+
         private void limpiar()
         {
             rtxtDescripcion.Clear();
             cmbEstado.SelectedItem = null;
+            rtxtDescripcion.Focus();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -89,7 +94,87 @@ namespace GestionCaja
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento", "Error al actualizar datos");
 
+            else if (dataGridView1.SelectedRows.Count < 1)
+                MessageBox.Show("Seleccione un elemento", "Error al actualizar datos");
+
+            else
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                oldPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()),row.Cells[1].Value.ToString(),row.Cells[2].Value.ToString());
+                oldPago.Eliminar();
+
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.");
+                dataGridView1.DataSource = CTipoPago.Visualizar();
+                limpiar();
+
+            }
+
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            newPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
+            newPago.Insertar();
+            dataGridView1.DataSource = CTipoPago.Visualizar();
+
+            MessageBox.Show("Se ha insertado un nuevo tipo de Pago", "Insercion Correcta");
+            limpiar();
+        }
+
+        private void btnActualizar2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento", "Error al actualizar datos");
+
+            else if (dataGridView1.SelectedRows.Count < 1)
+                MessageBox.Show("Seleccione un elemento", "Error al actualizar datos");
+
+            else
+            {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                btnInsertar.Enabled = false;
+                btnActualizar2.Enabled = false;
+                btnActualizar.Enabled = true;
+
+                oldPago = new CTipoPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+
+                /*cmbEstado.SelectedItem = from ComboBox.ObjectCollection item in cmbEstado.Items 
+                                         * where cmbEstado.Items.ToString().Contains(oldPago.estado)
+                                           select item;  */
+
+                //cmbCampo.SelectedIndex = oldPago.estado == "Activo" ? 0 : -1;
+
+                rtxtDescripcion.Text = oldPago.descripcion;
+                cmbEstado.Text = oldPago.estado;
+            }
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoPago.Visualizar() : dataGridView1.DataSource;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            newPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
+            CTipoPago.Actualizar(oldPago, newPago);
+
+            dataGridView1.DataSource = CTipoPago.Visualizar();
+
+            btnActualizar.Enabled = false;
+            btnInsertar.Enabled = true;
+            btnActualizar2.Enabled = true;
+
+            MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
+            limpiar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = CTipoPago.Visualizar($"SELECT * FROM TIPO_PAGO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
         }
     }
 }

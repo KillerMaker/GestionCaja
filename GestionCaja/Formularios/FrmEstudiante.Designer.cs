@@ -364,14 +364,14 @@
             this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
             this.cmbCampo.Items.AddRange(new object[] {
-            "NOMBRE",
             "IDENTIFICADOR",
-            "TANDA_LABOR",
-            "PORCIENTO_COMISION",
+            "NOMBRE",
             "FECHA_INGRESO",
-            "SUELDO",
             "FECHA_NACIMIENTO",
+            "MATRICULA",
+            "CARRERA",
             "GENERO",
+            "ESTADO",
             "CEDULA",
             "TIPO_CLIENTE"});
             this.cmbCampo.Location = new System.Drawing.Point(52, 25);
