@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionCaja.Entidades;
 
 
 namespace GestionCaja
@@ -18,8 +19,9 @@ namespace GestionCaja
             InitializeComponent();
         }
 
-        SqlDataManagement dataManagement = new SqlDataManagement();
-        Form1 formulario;
+        private SqlDataManagement dataManagement = new SqlDataManagement();
+        private Form1 formulario;
+        private CUsuario usuario;
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -38,9 +40,26 @@ namespace GestionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
-            formulario.Show();
-            Hide();
+            dataManagement.ExecuteCommand($"SELECT TOP 1 * FROM USUARIO WHERE NOMBRE_USUARIO='{textBox1.Text}' AND PASSWORD='{textBox2.Text}'");
+            dataManagement.ExecuteReader();
+
+            bool s=false;
+            while(dataManagement.reader.Read())
+            {
+                if (dataManagement.reader.HasRows)
+                {
+                    usuario = new CUsuario(int.Parse(dataManagement.reader["ID_USUARIO"].ToString()), dataManagement.reader["NOMBRE_USUARIO"].ToString(), dataManagement.reader["PASSWORD"].ToString(), dataManagement.reader["TIPO_USUARIO"].ToString());
+                    formulario = new Form1(usuario);
+                    formulario.Show();
+                    s = true;
+                    Hide();
+                }
+            }
+
+            dataManagement.connection.Close();
+
+            if(s==false)
+                MessageBox.Show("Usuario no valido", "Error en Login");
         }
     }
 }

@@ -16,43 +16,45 @@ namespace GestionCaja
         private Form formulario;
         private CEmpleado oldEmpleado;
         private CEmpleado newEmpleado;
+        private CUsuario usuario;
 
-        public FrmEmpleado()
+        public FrmEmpleado(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -64,7 +66,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -76,7 +78,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }

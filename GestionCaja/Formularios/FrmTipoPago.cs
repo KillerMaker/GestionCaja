@@ -13,13 +13,15 @@ namespace GestionCaja
 {
     public partial class FrmTipoPago : Form
     {
-        public FrmTipoPago()
+        public FrmTipoPago(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
-        Form formulario;
-        CTipoPago oldPago;
-        CTipoPago newPago;
+        private Form formulario;
+        private CTipoPago oldPago;
+        private CTipoPago newPago;
+        private CUsuario usuario;
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
@@ -28,35 +30,35 @@ namespace GestionCaja
         //MENU
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -68,7 +70,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }

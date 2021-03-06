@@ -13,48 +13,50 @@ namespace GestionCaja
 {
     public partial class FrmTipoServicio : Form
     {
-        public FrmTipoServicio()
+        public FrmTipoServicio(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
 
-        CTipoServicio oldServicio;
-        CTipoServicio newServicio;
-        Form formulario;
+        private CTipoServicio oldServicio;
+        private CTipoServicio newServicio;
+        private Form formulario;
+        private CUsuario usuario;
         
 
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -66,7 +68,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -78,7 +80,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
