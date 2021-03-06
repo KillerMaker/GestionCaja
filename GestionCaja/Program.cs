@@ -18,5 +18,6 @@ namespace GestionCaja
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
+        //Favor ignorar este comentario
     }
 }
