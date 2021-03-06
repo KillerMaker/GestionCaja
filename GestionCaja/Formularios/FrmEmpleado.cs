@@ -173,7 +173,7 @@ namespace GestionCaja
         {
             //Se resetea el atributo .Text a todos los controles de entrada del formulario
             txtEstado.SelectedItem = null;
-            txtLaboral.Clear();
+            txtLaboral.SelectedIndex = 0;
             txtNombre.Clear();
             txtSueldo.Clear();
             txtValor.Clear();

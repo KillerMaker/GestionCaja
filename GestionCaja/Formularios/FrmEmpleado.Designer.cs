@@ -39,7 +39,6 @@
             this.mtxtCedula = new System.Windows.Forms.MaskedTextBox();
             this.mtxtFechaNac = new System.Windows.Forms.MaskedTextBox();
             this.txtSueldo = new System.Windows.Forms.TextBox();
-            this.txtLaboral = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -73,6 +72,7 @@
             this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtLaboral = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtLaboral);
             this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnActualizar);
@@ -93,7 +94,6 @@
             this.groupBox1.Controls.Add(this.mtxtCedula);
             this.groupBox1.Controls.Add(this.mtxtFechaNac);
             this.groupBox1.Controls.Add(this.txtSueldo);
-            this.groupBox1.Controls.Add(this.txtLaboral);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -205,13 +205,6 @@
             this.txtSueldo.Name = "txtSueldo";
             this.txtSueldo.Size = new System.Drawing.Size(261, 20);
             this.txtSueldo.TabIndex = 7;
-            // 
-            // txtLaboral
-            // 
-            this.txtLaboral.Location = new System.Drawing.Point(149, 191);
-            this.txtLaboral.Name = "txtLaboral";
-            this.txtLaboral.Size = new System.Drawing.Size(261, 20);
-            this.txtLaboral.TabIndex = 7;
             // 
             // txtNombre
             // 
@@ -529,6 +522,19 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click_1);
             // 
+            // txtLaboral
+            // 
+            this.txtLaboral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtLaboral.FormattingEnabled = true;
+            this.txtLaboral.Items.AddRange(new object[] {
+            "Diurna",
+            "Nocturna",
+            "Mixta"});
+            this.txtLaboral.Location = new System.Drawing.Point(274, 191);
+            this.txtLaboral.Name = "txtLaboral";
+            this.txtLaboral.Size = new System.Drawing.Size(136, 21);
+            this.txtLaboral.TabIndex = 18;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,7 +574,6 @@
         private System.Windows.Forms.MaskedTextBox mtxtCedula;
         private System.Windows.Forms.MaskedTextBox mtxtFechaNac;
         private System.Windows.Forms.TextBox txtSueldo;
-        private System.Windows.Forms.TextBox txtLaboral;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -601,5 +606,6 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.ComboBox txtEstado;
+        private System.Windows.Forms.ComboBox txtLaboral;
     }
 }

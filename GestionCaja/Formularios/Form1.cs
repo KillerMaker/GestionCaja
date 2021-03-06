@@ -18,6 +18,7 @@ namespace GestionCaja
             InitializeComponent();
         }
 
+        int i = 0;
         Form formulario;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -70,6 +71,19 @@ namespace GestionCaja
             formulario = new Form1();
             formulario.Show();
             Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            i++;
+            button1.Text = i.ToString();
         }
     }
 }
