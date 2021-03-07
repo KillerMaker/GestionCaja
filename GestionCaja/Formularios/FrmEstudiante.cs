@@ -77,6 +77,15 @@ namespace GestionCaja
 
         private void FrmEstudiante_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = usuario.nombreUsuario;
+
+            if (usuario.tipoUsuario == "Empleado")
+            {
+                empleadoToolStripMenuItem1.Enabled = false;
+                tiposDeDocumentosToolStripMenuItem.Enabled = false;
+                tiposDePagosToolStripMenuItem.Enabled = false;
+                tiposDeServiciosToolStripMenuItem.Enabled = false;
+            }
 
         }
 

@@ -27,6 +27,13 @@ namespace GestionCaja
         private void Form1_Load(object sender, EventArgs e)
         {
             label1.Text = usuario.nombreUsuario;
+            if(usuario.tipoUsuario=="Empleado")
+            {
+                empleadoToolStripMenuItem1.Enabled = false;
+                tiposDeDocumentosToolStripMenuItem.Enabled = false;
+                tiposDePagosToolStripMenuItem.Enabled = false;
+                tiposDeServiciosToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)

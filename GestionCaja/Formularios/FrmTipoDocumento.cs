@@ -26,6 +26,7 @@ namespace GestionCaja
 
         private void FrmDocumento_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = usuario.nombreUsuario;
 
         }
 

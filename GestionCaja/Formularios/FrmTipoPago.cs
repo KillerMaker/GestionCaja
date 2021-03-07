@@ -25,6 +25,7 @@ namespace GestionCaja
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = usuario.nombreUsuario;
 
         }
         //MENU

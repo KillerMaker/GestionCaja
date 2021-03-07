@@ -177,7 +177,7 @@ namespace GestionCaja
 
         private void FrmTipoServicio_Load(object sender, EventArgs e)
         {
-
+            lblUsername.Text = usuario.nombreUsuario;
         }
     }
 }

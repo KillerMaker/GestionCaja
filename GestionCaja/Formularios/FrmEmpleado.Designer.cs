@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtLaboral = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -72,7 +73,10 @@
             this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtLaboral = new System.Windows.Forms.ComboBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,6 +87,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbTipoUsuario);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtLaboral);
             this.groupBox1.Controls.Add(this.txtEstado);
             this.groupBox1.Controls.Add(this.btnLimpiar);
@@ -106,10 +112,23 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 472);
+            this.groupBox1.Size = new System.Drawing.Size(433, 551);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insercion de Datos del empleado";
+            // 
+            // txtLaboral
+            // 
+            this.txtLaboral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtLaboral.FormattingEnabled = true;
+            this.txtLaboral.Items.AddRange(new object[] {
+            "Diurna",
+            "Nocturna",
+            "Mixta"});
+            this.txtLaboral.Location = new System.Drawing.Point(274, 191);
+            this.txtLaboral.Name = "txtLaboral";
+            this.txtLaboral.Size = new System.Drawing.Size(136, 21);
+            this.txtLaboral.TabIndex = 18;
             // 
             // txtEstado
             // 
@@ -118,14 +137,14 @@
             this.txtEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.txtEstado.Location = new System.Drawing.Point(274, 373);
+            this.txtEstado.Location = new System.Drawing.Point(274, 426);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(136, 21);
             this.txtEstado.TabIndex = 17;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(327, 426);
+            this.btnLimpiar.Location = new System.Drawing.Point(327, 479);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 16;
@@ -136,7 +155,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Enabled = false;
-            this.btnActualizar.Location = new System.Drawing.Point(220, 426);
+            this.btnActualizar.Location = new System.Drawing.Point(220, 479);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 15;
@@ -146,7 +165,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(109, 426);
+            this.btnInsertar.Location = new System.Drawing.Point(109, 479);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 14;
@@ -216,7 +235,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 373);
+            this.label9.Location = new System.Drawing.Point(7, 426);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 5;
@@ -522,24 +541,53 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click_1);
             // 
-            // txtLaboral
+            // lblUsername
             // 
-            this.txtLaboral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtLaboral.FormattingEnabled = true;
-            this.txtLaboral.Items.AddRange(new object[] {
-            "Diurna",
-            "Nocturna",
-            "Mixta"});
-            this.txtLaboral.Location = new System.Drawing.Point(274, 191);
-            this.txtLaboral.Name = "txtLaboral";
-            this.txtLaboral.Size = new System.Drawing.Size(136, 21);
-            this.txtLaboral.TabIndex = 18;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(1020, 9);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 7;
+            this.lblUsername.Text = "Username";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(1090, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(70, 13);
+            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cerrar Sesion";
+            // 
+            // cmbTipoUsuario
+            // 
+            this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoUsuario.FormattingEnabled = true;
+            this.cmbTipoUsuario.Items.AddRange(new object[] {
+            "Empleado",
+            "Administrador"});
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(274, 375);
+            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(136, 21);
+            this.cmbTipoUsuario.TabIndex = 20;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 375);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Tipo de Usuario";
             // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 642);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -607,5 +655,9 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.ComboBox txtEstado;
         private System.Windows.Forms.ComboBox txtLaboral;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox cmbTipoUsuario;
+        private System.Windows.Forms.Label label13;
     }
 }

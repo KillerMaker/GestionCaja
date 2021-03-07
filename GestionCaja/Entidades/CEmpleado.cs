@@ -17,10 +17,11 @@ namespace GestionCaja.Entidades
         public readonly string fechaIngreso;
         public readonly string estado;
         public readonly decimal sueldo;
+        public readonly string tipoUsuario;
 
 
         /*Constructor CEmpleado, favor usar este constructor para crear el objeto con destino a la base de datos*/
-        public CEmpleado(string nombre, string fecha, string genero, string cedula,string tandaLabor,decimal porcientoComision,string fechaIngreso,string estado, decimal sueldo)
+        public CEmpleado(string nombre, string fecha, string genero, string cedula,string tandaLabor,decimal porcientoComision,string fechaIngreso,string estado, decimal sueldo,string tipoUsuario)
         :base(nombre,fecha,genero,cedula)//Utiliza el constructor de la clase padre CPersona
         {
             this.id = null;
@@ -29,13 +30,14 @@ namespace GestionCaja.Entidades
             this.fechaIngreso = fechaIngreso;
             this.estado = estado;
             this.sueldo = sueldo;
+            this.tipoUsuario = tipoUsuario;
         }
 
 
         /*Constructor CEmpleado, favor usar este constructor al crear el objeto con informcacion proveniente de la
          base de datos:la diferencia con el constructor anterior es que este recive un argumento mas (int id)
          el cual debe llenarse con el campo ["IDENTIFICADOR"] de la base de datos.*/
-        public CEmpleado(int id,string nombre, string fecha, string genero, string cedula, string tandaLabor, decimal porcientoComision, string fechaIngreso, string estado, decimal sueldo)
+        public CEmpleado(int id,string nombre, string fecha, string genero, string cedula, string tandaLabor, decimal porcientoComision, string fechaIngreso, string estado, decimal sueldo,string tipoUsuario)
        : base(nombre, fecha, genero, cedula)
         {
             this.id = id;
@@ -44,6 +46,7 @@ namespace GestionCaja.Entidades
             this.fechaIngreso = fechaIngreso;
             this.estado = estado;
             this.sueldo = sueldo;
+            this.tipoUsuario = tipoUsuario;
         }
 
 
@@ -53,7 +56,7 @@ namespace GestionCaja.Entidades
             dataManagement = new SqlDataManagement();
 
             //Ejecuta el Stored Procedure ["INSERTAR_EMPLEADO"]
-            dataManagement.ExecuteCommand("INSERTAR_EMPLEADO '" + nombre + "','" +fecha + "','" +genero + "','" +cedula + "','" +tandaLabor + "'," +porcientoComision + ",'" + fechaIngreso + "','" + sueldo + "','" +estado + "'");
+            dataManagement.ExecuteCommand("INSERTAR_EMPLEADO '" + nombre + "','" +fecha + "','" +genero + "','" +cedula + "','" +tandaLabor + "'," +porcientoComision + ",'" + fechaIngreso + "','" + sueldo + "','" +tipoUsuario+"','"+estado + "'");
         }
 
 
