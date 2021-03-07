@@ -90,19 +90,28 @@ namespace GestionCaja
         private void button1_Click(object sender, EventArgs e)
         {
             //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado= new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-",""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text),cmbTipoUsuario.Text);
-
-            newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
+            newEmpleado= new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-",""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")),cmbTipoUsuario.Text);
+            if(newEmpleado.cedulaValida==false)
+            {
+                MessageBox.Show("Cedula Invalida", "Error en la Insercion de datos");
+            }
+            else
+            {
+                newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
+                MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
+                limpiar();//Limpia el atributo .Text de todos los controles de entrada
+            }
+               
             dataGridView1.DataSource= CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
-            MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
-            limpiar();//Limpia el atributo .Text de todos los controles de entrada
+           
+            
         }
 
         //Boton de Confirmar Actualizar datos
         private void button2_Click(object sender, EventArgs e)
         {
             //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado = new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text),cmbTipoUsuario.Text);
+            newEmpleado = new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")),cmbTipoUsuario.Text);
 
             //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
             //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.

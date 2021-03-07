@@ -18,6 +18,7 @@ namespace GestionCaja.Entidades
         public readonly string fecha;
         public readonly string genero;
         public readonly string cedula;
+        public readonly bool cedulaValida;
 
         // Variable global estatica utilizada para comunicarce con la base de datos.
         static protected SqlDataManagement dataManagement;
@@ -29,6 +30,12 @@ namespace GestionCaja.Entidades
             this.fecha = fecha;
             this.genero = genero;
             this.cedula = cedula;
+
+            if (validaCedula(cedula))
+                cedulaValida = true;
+            else
+                cedulaValida = false;
+
         }
 
         //Metodo abstracto para Insertar CPersona's en la base de datos
@@ -49,6 +56,32 @@ namespace GestionCaja.Entidades
             else if(newPersona is CEstudiante)
                 dataManagement.ExecuteCommand($"UPDATE PERSONA SET NOMBRE='{newPersona.nombre}' ,GENERO='{newPersona.genero}' FROM PERSONA P INNER JOIN ESTUDIANTE E ON E.ID_PERSONA=P.ID_PERSONA WHERE IDENTIFICADOR={oldPersona.id}");
 
+        }
+        private bool validaCedula(string pCedula)
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+
+            // if (pLongCed < 11 || pLongCed > 11 || vcCedula== "00000000000")
+                if (pLongCed < 11 || pLongCed > 11 )
+                    return false;
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 == 0)
+                return true;
+            else
+                return false;
         }
     }
 }

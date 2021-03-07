@@ -69,7 +69,8 @@ namespace GestionCaja.Entidades
 
             //Realiza un Update a la tabla empleado insertando los datos de newPersona donde el campo IDENTIFICADOR
             //sea igual a oldPersona.id.Value
-            dataManagement.ExecuteCommand("UPDATE EMPLEADO SET TANDA_LABOR='"+newPersona.tandaLabor+"',PORCIENTO_COMISION="+(newPersona.porcientoComision/100)+",SUELDO="+newPersona.sueldo+",ESTADO='"+newPersona.estado+"' WHERE IDENTIFICADOR="+oldPersona.id.Value);
+            dataManagement.ExecuteCommand(@"UPDATE EMPLEADO SET TANDA_LABOR='"+newPersona.tandaLabor+"',PORCIENTO_COMISION="+(newPersona.porcientoComision/100)+",SUELDO="+newPersona.sueldo+",ESTADO='"+newPersona.estado+"' WHERE IDENTIFICADOR="+oldPersona.id.Value
+                                         +" UPDATE USUARIO SET TIPO_USUARIO ='"+newPersona.tipoUsuario+"' WHERE ID_EMPLEADO="+oldPersona.id);
            
         }
 

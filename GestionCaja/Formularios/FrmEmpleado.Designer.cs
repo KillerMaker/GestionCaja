@@ -39,7 +39,6 @@
             this.nudComision = new System.Windows.Forms.NumericUpDown();
             this.mtxtCedula = new System.Windows.Forms.MaskedTextBox();
             this.mtxtFechaNac = new System.Windows.Forms.MaskedTextBox();
-            this.txtSueldo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,6 +76,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtSueldo = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -87,6 +87,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtSueldo);
             this.groupBox1.Controls.Add(this.cmbTipoUsuario);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtLaboral);
@@ -99,7 +100,6 @@
             this.groupBox1.Controls.Add(this.nudComision);
             this.groupBox1.Controls.Add(this.mtxtCedula);
             this.groupBox1.Controls.Add(this.mtxtFechaNac);
-            this.groupBox1.Controls.Add(this.txtSueldo);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -217,13 +217,6 @@
             this.mtxtFechaNac.Size = new System.Drawing.Size(83, 20);
             this.mtxtFechaNac.TabIndex = 9;
             this.mtxtFechaNac.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtSueldo
-            // 
-            this.txtSueldo.Location = new System.Drawing.Point(149, 325);
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(261, 20);
-            this.txtSueldo.TabIndex = 7;
             // 
             // txtNombre
             // 
@@ -581,6 +574,16 @@
             this.label13.TabIndex = 19;
             this.label13.Text = "Tipo de Usuario";
             // 
+            // txtSueldo
+            // 
+            this.txtSueldo.Location = new System.Drawing.Point(317, 317);
+            this.txtSueldo.Mask = "000,000.00 RD$";
+            this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtSueldo.Size = new System.Drawing.Size(93, 20);
+            this.txtSueldo.TabIndex = 21;
+            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,7 +624,6 @@
         private System.Windows.Forms.NumericUpDown nudComision;
         private System.Windows.Forms.MaskedTextBox mtxtCedula;
         private System.Windows.Forms.MaskedTextBox mtxtFechaNac;
-        private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -659,5 +661,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ComboBox cmbTipoUsuario;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.MaskedTextBox txtSueldo;
     }
 }
