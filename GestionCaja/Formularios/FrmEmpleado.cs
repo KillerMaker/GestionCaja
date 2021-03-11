@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using System.Security.Cryptography;
 
 namespace GestionCaja
 {
@@ -132,6 +133,7 @@ namespace GestionCaja
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
             lblUsername.Text = usuario.nombreUsuario;
+            
         }
 
         //Boton de busqueda personalizada
@@ -233,6 +235,13 @@ namespace GestionCaja
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

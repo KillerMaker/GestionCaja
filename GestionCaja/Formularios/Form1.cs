@@ -88,8 +88,6 @@ namespace GestionCaja
             Login login = new Login();
             login.Show();
             this.Close();
-
-            
         }
     }
 }

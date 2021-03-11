@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSueldo = new System.Windows.Forms.MaskedTextBox();
+            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtLaboral = new System.Windows.Forms.ComboBox();
             this.txtEstado = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -74,9 +77,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtSueldo = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,6 +116,37 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insercion de Datos del empleado";
+            // 
+            // txtSueldo
+            // 
+            this.txtSueldo.Location = new System.Drawing.Point(317, 317);
+            this.txtSueldo.Mask = "000,000.00 RD$";
+            this.txtSueldo.Name = "txtSueldo";
+            this.txtSueldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtSueldo.Size = new System.Drawing.Size(93, 20);
+            this.txtSueldo.TabIndex = 21;
+            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cmbTipoUsuario
+            // 
+            this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoUsuario.FormattingEnabled = true;
+            this.cmbTipoUsuario.Items.AddRange(new object[] {
+            "Empleado",
+            "Administrador"});
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(274, 375);
+            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(136, 21);
+            this.cmbTipoUsuario.TabIndex = 20;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 375);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 13);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Tipo de Usuario";
             // 
             // txtLaboral
             // 
@@ -552,37 +583,7 @@
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Cerrar Sesion";
-            // 
-            // cmbTipoUsuario
-            // 
-            this.cmbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoUsuario.FormattingEnabled = true;
-            this.cmbTipoUsuario.Items.AddRange(new object[] {
-            "Empleado",
-            "Administrador"});
-            this.cmbTipoUsuario.Location = new System.Drawing.Point(274, 375);
-            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(136, 21);
-            this.cmbTipoUsuario.TabIndex = 20;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 375);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Tipo de Usuario";
-            // 
-            // txtSueldo
-            // 
-            this.txtSueldo.Location = new System.Drawing.Point(317, 317);
-            this.txtSueldo.Mask = "000,000.00 RD$";
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtSueldo.Size = new System.Drawing.Size(93, 20);
-            this.txtSueldo.TabIndex = 21;
-            this.txtSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FrmEmpleado
             // 

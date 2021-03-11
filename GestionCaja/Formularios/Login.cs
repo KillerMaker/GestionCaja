@@ -40,7 +40,7 @@ namespace GestionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataManagement.ExecuteCommand($"SELECT TOP 1 * FROM USUARIO WHERE NOMBRE_USUARIO='{textBox1.Text}' AND PASSWORD='{textBox2.Text}'");
+            dataManagement.ExecuteCommand($"SELECT TOP 1 * FROM USUARIO WHERE NOMBRE_USUARIO='{textBox1.Text}' AND PASSWORD=CONVERT(VARCHAR,HASHBYTES('SHA2_256','{textBox2.Text}'),2)");
             dataManagement.ExecuteReader();
 
             bool s=false;
