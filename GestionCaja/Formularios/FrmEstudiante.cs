@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Utilidades;
 
 namespace GestionCaja
 {
@@ -161,7 +162,7 @@ namespace GestionCaja
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CEstudiante.Visualizar($"SELECT * FROM VISTA_ESTUDIANTE WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+            dataGridView1.DataSource = CEstudiante.Visualizar($"SELECT * FROM VISTA_ESTUDIANTE WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)

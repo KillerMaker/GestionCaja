@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using System.Data.SqlClient;
 
 
 namespace GestionCaja
@@ -40,7 +41,21 @@ namespace GestionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataManagement.ExecuteCommand($"SELECT TOP 1 * FROM USUARIO WHERE NOMBRE_USUARIO='{textBox1.Text}' AND PASSWORD=CONVERT(VARCHAR,HASHBYTES('SHA2_256','{textBox2.Text}'),2)");
+            dataManagement.command=new SqlCommand( $"SELECT TOP 1 * FROM USUARIO WHERE NOMBRE_USUARIO=@USERNAME AND PASSWORD=CONVERT(VARCHAR,HASHBYTES('SHA2_256',@PASSWORD),2)",dataManagement.connection);
+            
+            SqlParameter p1 = new SqlParameter();
+            p1.ParameterName = "@USERNAME";
+            p1.Value = textBox1.Text;
+            p1.SqlDbType = SqlDbType.VarChar;
+            dataManagement.command.Parameters.Add(p1);
+
+            SqlParameter p2 = new SqlParameter();
+            p2.ParameterName = "@PASSWORD";
+            p2.Value = textBox2.Text;
+            p2.SqlDbType = SqlDbType.VarChar;
+            dataManagement.command.Parameters.Add(p2);
+
+            dataManagement.ExecuteCommand();
             dataManagement.ExecuteReader();
 
             bool s=false;

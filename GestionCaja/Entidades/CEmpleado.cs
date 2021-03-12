@@ -108,11 +108,19 @@ namespace GestionCaja.Entidades
             dataTable.Columns.Add("Estado");
             dataTable.Columns.Add("Sueldo");
             dataTable.Columns.Add("Tipo de cliente");
-            
+
+            try
+            {
+                while (dataManagement.reader.Read())
+                    dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"], dataManagement.reader["FECHA_INGRESO"], dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"]);
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
             //Lectura de los registros en la base e datos
-            while (dataManagement.reader.Read())
-                dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"],dataManagement.reader["FECHA_INGRESO"],dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"]);
-            
+
             return dataTable;
                 
         }

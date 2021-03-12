@@ -43,6 +43,22 @@ namespace GestionCaja
 
                 MessageBox.Show(ex.ToString(), "Error en la consulta de datos");
             }
+            
+        }
+        public void ExecuteCommand()
+        {
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error en la consulta de datos");
+            }
+
         }
         public SqlDataReader ExecuteReader()
         {
