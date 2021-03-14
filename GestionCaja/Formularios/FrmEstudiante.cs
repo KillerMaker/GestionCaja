@@ -196,7 +196,7 @@ namespace GestionCaja
             try
             {
                 //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-                newEstudiante = new CEstudiante(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), cmbCarrera.Text, mtxtFechaIngreso.Text, cmbEstado.Text);
+                newEstudiante = new CEstudiante(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), cmbCarrera.Text, mtxtFechaIngreso.Text, cmbEstado.Text);
 
                 //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
                 //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.

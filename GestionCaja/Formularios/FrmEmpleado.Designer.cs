@@ -255,10 +255,11 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(149, 37);
+            this.txtNombre.Location = new System.Drawing.Point(173, 37);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(261, 20);
+            this.txtNombre.Size = new System.Drawing.Size(237, 20);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 

@@ -205,15 +205,17 @@
             this.mtxtFechaIngreso.Name = "mtxtFechaIngreso";
             this.mtxtFechaIngreso.Size = new System.Drawing.Size(83, 20);
             this.mtxtFechaIngreso.TabIndex = 12;
+            this.mtxtFechaIngreso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.mtxtFechaIngreso.ValidatingType = typeof(System.DateTime);
             // 
             // mtxtCedula
             // 
-            this.mtxtCedula.Location = new System.Drawing.Point(274, 145);
+            this.mtxtCedula.Location = new System.Drawing.Point(327, 145);
             this.mtxtCedula.Mask = "000-0000000-0";
             this.mtxtCedula.Name = "mtxtCedula";
-            this.mtxtCedula.Size = new System.Drawing.Size(136, 20);
+            this.mtxtCedula.Size = new System.Drawing.Size(83, 20);
             this.mtxtCedula.TabIndex = 10;
+            this.mtxtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // mtxtFechaNac
             // 
@@ -222,6 +224,7 @@
             this.mtxtFechaNac.Name = "mtxtFechaNac";
             this.mtxtFechaNac.Size = new System.Drawing.Size(83, 20);
             this.mtxtFechaNac.TabIndex = 9;
+            this.mtxtFechaNac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.mtxtFechaNac.ValidatingType = typeof(System.DateTime);
             // 
             // txtNombre
@@ -230,6 +233,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(261, 20);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
