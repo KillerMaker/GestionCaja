@@ -95,8 +95,6 @@ namespace GestionCaja
         //******************************************
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
                 newEstudiante = new CEstudiante(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), cmbCarrera.Text, mtxtFechaIngreso.Text, cmbEstado.Text);
                 if(newEstudiante.nombre == "" || newEstudiante.fecha == "" || newEstudiante.genero == "" || newEstudiante.carrera == "" || newEstudiante.fechaRegistro == "" || newEstudiante.estado == "")
@@ -110,11 +108,6 @@ namespace GestionCaja
                     MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion correcta");
                     limpiar();//Limpia el atributo .Text de todos los controles de entrada
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Inserte los datos correctamente", "Error en la insercion de datos");
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
