@@ -188,7 +188,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),"");
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),row.Cells[11].Value.ToString());
                 
                 //Se insertan los valores de oldEmpleado en el atributo .Text de los controles de entrada del formulario
                 txtNombre.Text = oldEmpleado.nombre;
@@ -200,6 +200,7 @@ namespace GestionCaja
                 mtxtFechaIngreso.Text = DateTime.Parse( oldEmpleado.fechaIngreso.Replace("-","")).ToString("dd/MM/yyyy");
                 txtSueldo.Text = oldEmpleado.sueldo.ToString();
                 txtEstado.Text = oldEmpleado.estado;
+                cmbTipoUsuario.Text = oldEmpleado.tipoUsuario;
 
                 btnInsertar.Enabled = false;
                 btnActualizar2.Enabled = false;
