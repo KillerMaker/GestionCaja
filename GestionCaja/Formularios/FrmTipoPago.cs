@@ -8,55 +8,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Utilidades;
 
 namespace GestionCaja
 {
     public partial class FrmTipoPago : Form
     {
-        public FrmTipoPago()
+        public FrmTipoPago(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
-        Form formulario;
-        CTipoPago oldPago;
-        CTipoPago newPago;
+        private Form formulario;
+        private CTipoPago oldPago;
+        private CTipoPago newPago;
+        private CUsuario usuario;
 
         private void FrmPago_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = usuario.nombreUsuario;
 
         }
         //MENU
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -68,7 +72,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -116,7 +120,7 @@ namespace GestionCaja
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            newPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
+            newPago = new CTipoPago(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
             newPago.Insertar();
             dataGridView1.DataSource = CTipoPago.Visualizar();
 
@@ -159,7 +163,7 @@ namespace GestionCaja
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            newPago = new CTipoPago(rtxtDescripcion.Text, cmbEstado.Text);
+            newPago = new CTipoPago(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
             CTipoPago.Actualizar(oldPago, newPago);
 
             dataGridView1.DataSource = CTipoPago.Visualizar();
@@ -175,6 +179,13 @@ namespace GestionCaja
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = CTipoPago.Visualizar($"SELECT * FROM TIPO_PAGO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

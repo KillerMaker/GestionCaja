@@ -16,8 +16,8 @@ namespace GestionCaja
         public SqlDataReader reader { get; set; }
 
         //Conexion de Guillermo: "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True"
-        //Conexion de Amauris: "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJA;Persist Security Info=True;User ID=sa;Password=Gabriel123"
-        public SqlDataManagement(string con= "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJA;Persist Security Info=True;User ID=sa;Password=Gabriel123")
+        //Conexion de Amauris: "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123"
+        public SqlDataManagement(string con= "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123")
         {
             try
             {
@@ -43,6 +43,22 @@ namespace GestionCaja
 
                 MessageBox.Show(ex.ToString(), "Error en la consulta de datos");
             }
+            
+        }
+        public void ExecuteCommand()
+        {
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "Error en la consulta de datos");
+            }
+
         }
         public SqlDataReader ExecuteReader()
         {

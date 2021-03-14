@@ -8,53 +8,56 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Utilidades;
 
 namespace GestionCaja
 {
     public partial class FrmTipoServicio : Form
     {
-        public FrmTipoServicio()
+        public FrmTipoServicio(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
 
-        CTipoServicio oldServicio;
-        CTipoServicio newServicio;
-        Form formulario;
+        private CTipoServicio oldServicio;
+        private CTipoServicio newServicio;
+        private Form formulario;
+        private CUsuario usuario;
         
 
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -66,7 +69,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -78,7 +81,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -98,7 +101,7 @@ namespace GestionCaja
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            newServicio = new CTipoServicio(rtxtDescripcion.Text, cmbEstado.Text);
+            newServicio = new CTipoServicio(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
             CTipoServicio.Actualizar(oldServicio, newServicio);
             dataGridView1.DataSource = CTipoServicio.Visualizar();
 
@@ -112,7 +115,7 @@ namespace GestionCaja
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            newServicio = new CTipoServicio(rtxtDescripcion.Text, cmbEstado.Text);
+            newServicio = new CTipoServicio(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
             newServicio.Insertar();
 
             MessageBox.Show("Se ha insertado un nuevo tipo de Servicio", "Insercion Correcta");
@@ -170,12 +173,19 @@ namespace GestionCaja
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CTipoServicio.Visualizar($"SELECT * FROM TIPO_SERVICIO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text}'");
+            dataGridView1.DataSource = CTipoServicio.Visualizar($"SELECT * FROM TIPO_SERVICIO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
         }
 
         private void FrmTipoServicio_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = usuario.nombreUsuario;
+        }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

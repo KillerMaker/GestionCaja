@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Utilidades;
+
 
 namespace GestionCaja
 {
@@ -16,43 +18,45 @@ namespace GestionCaja
         private Form formulario;
         private CEmpleado oldEmpleado;
         private CEmpleado newEmpleado;
+        private CUsuario usuario;
 
-        public FrmEmpleado()
+        public FrmEmpleado(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
         //MENU
         private void estudiantesToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -64,7 +68,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -76,7 +80,7 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(usuario);
             formulario.Show();
             Hide();
         }
@@ -87,46 +91,70 @@ namespace GestionCaja
         //Boton de Insertar datos
         private void button1_Click(object sender, EventArgs e)
         {
-            //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado= new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-",""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text));
-
-            newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
-            dataGridView1.DataSource= CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
-            MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
-            limpiar();//Limpia el atributo .Text de todos los controles de entrada
+            try
+            {
+                //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
+                newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")), cmbTipoUsuario.Text);
+                if (newEmpleado.cedulaValida == false)
+                {
+                    MessageBox.Show("Cedula Invalida", "Error en la Insercion de datos");
+                }
+                else
+                {
+                    newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
+                    MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
+                    limpiar();//Limpia el atributo .Text de todos los controles de entrada
+                    dataGridView1.DataSource = CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Inserte los datos correctamente","Error en la insercion de datos");
+            }
+               
         }
 
         //Boton de Confirmar Actualizar datos
         private void button2_Click(object sender, EventArgs e)
         {
-            //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado = new CEmpleado(txtNombre.Text, mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text));
+            try
+            {
+                //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
+                newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text.SQLInyectionClearString(), decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")), cmbTipoUsuario.Text);
 
-            //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
-            //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
-            CEmpleado.Actualizar(oldEmpleado, newEmpleado);
+                //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
+                //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
+                CEmpleado.Actualizar(oldEmpleado, newEmpleado);
 
-            btnActualizar.Enabled = false;
-            btnInsertar.Enabled = true;
-            btnActualizar2.Enabled = true;
-            mtxtCedula.Enabled = true;
-            mtxtFechaIngreso.Enabled = true;
-            mtxtFechaNac.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnInsertar.Enabled = true;
+                btnActualizar2.Enabled = true;
+                mtxtCedula.Enabled = true;
+                mtxtFechaIngreso.Enabled = true;
+                mtxtFechaNac.Enabled = true;
 
-            dataGridView1.DataSource = CEmpleado.Visualizar();
-            MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion Correcta");
-            limpiar();
+                dataGridView1.DataSource = CEmpleado.Visualizar();
+                MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion Correcta");
+                limpiar();
+            }
+            catch
+            {
+                MessageBox.Show("Inserte los datos correctamente", "Error en la insercion de datos");
+            }
+            
         }
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = CEmpleado.Visualizar();
+            lblUsername.Text = usuario.nombreUsuario;
+            
         }
 
         //Boton de busqueda personalizada
         private void button5_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CEmpleado.Visualizar("SELECT * FROM VISTA_EMPLEADO WHERE "+cmbCampo.Text+" "+cmbCriterio.Text+" '"+txtValor.Text+"'");
+            dataGridView1.DataSource = CEmpleado.Visualizar($"SELECT * FROM VISTA_EMPLEADO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
+
         }
 
         //Boton de Actualizar datos
@@ -148,7 +176,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()));
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),"");
                 
                 //Se insertan los valores de oldEmpleado en el atributo .Text de los controles de entrada del formulario
                 txtNombre.Text = oldEmpleado.nombre;
@@ -173,7 +201,7 @@ namespace GestionCaja
         {
             //Se resetea el atributo .Text a todos los controles de entrada del formulario
             txtEstado.SelectedItem = null;
-            txtLaboral.Clear();
+            txtLaboral.SelectedItem = null;
             txtNombre.Clear();
             txtSueldo.Clear();
             txtValor.Clear();
@@ -182,6 +210,7 @@ namespace GestionCaja
             mtxtFechaNac.Clear();
             nudComision.Value = 0;
             cmbGenero.SelectedItem = null;
+            cmbTipoUsuario.SelectedItem = null;
 
             txtNombre.Focus();
         }
@@ -208,7 +237,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), decimal.Parse(row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()));
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), decimal.Parse(row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),"");
                 MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.", "Eliminacion Correcta");
                 oldEmpleado.Eliminar();
             }
@@ -223,5 +252,13 @@ namespace GestionCaja
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
     }
 }

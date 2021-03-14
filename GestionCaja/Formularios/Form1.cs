@@ -7,55 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionCaja.Entidades;
 
 namespace GestionCaja
 {
     public partial class Form1 : Form
     {
-        
-        public Form1()
+
+        private CUsuario usuario;
+        private Form formulario;
+
+        public Form1(CUsuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
 
-        Form formulario;
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            label1.Text = usuario.nombreUsuario;
+            if(usuario.tipoUsuario=="Empleado")
+            {
+                empleadoToolStripMenuItem1.Enabled = false;
+                tiposDeDocumentosToolStripMenuItem.Enabled = false;
+                tiposDePagosToolStripMenuItem.Enabled = false;
+                tiposDeServiciosToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEstudiante();
+            formulario = new FrmEstudiante(usuario);
             formulario.Show();
             Hide();
         }
 
         private void empleadoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formulario = new FrmEmpleado();
+            formulario = new FrmEmpleado(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoDocumento();
+            formulario = new FrmTipoDocumento(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoServicio();
+            formulario = new FrmTipoServicio(usuario);
             formulario.Show();
             Hide();
         }
 
         private void tiposDePagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new FrmTipoPago();
+            formulario = new FrmTipoPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -67,9 +78,16 @@ namespace GestionCaja
 
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formulario = new Form1();
+            formulario = new Form1(this.usuario);
             formulario.Show();
             Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

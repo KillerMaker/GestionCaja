@@ -28,3 +28,5 @@ C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaj
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.CoreCompileInputs.cache
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.exe
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
+C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Login.resources
+C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Login.resources

@@ -42,10 +42,10 @@ namespace GestionCaja.Entidades
         //Sobrescribe el metodo abstracto Insertar() de CPersona y lo implementa
         public override void Insertar()
         {
-            dataManagement = new SqlDataManagement();
+                dataManagement = new SqlDataManagement();
 
-            //Ejecuta el Stored Procedure["INSERTAR_ESTUDIANTE"]
-            dataManagement.ExecuteCommand($"INSERTAR_ESTUDIANTE '{nombre}','{fecha}','{genero}','{cedula}','{carrera}','{fechaRegistro}','{estado}'");
+                //Ejecuta el Stored Procedure["INSERTAR_ESTUDIANTE"]
+                dataManagement.ExecuteCommand($"INSERTAR_ESTUDIANTE '{nombre}','{fecha}','{genero}','{cedula}','{carrera}','{fechaRegistro}','{estado}'");
         }
 
 
