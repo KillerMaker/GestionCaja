@@ -91,44 +91,57 @@ namespace GestionCaja
         //Boton de Insertar datos
         private void button1_Click(object sender, EventArgs e)
         {
-            //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado= new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-",""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")),cmbTipoUsuario.Text);
-            if(newEmpleado.cedulaValida==false)
+            try
             {
-                MessageBox.Show("Cedula Invalida", "Error en la Insercion de datos");
+                //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
+                newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")), cmbTipoUsuario.Text);
+                if (newEmpleado.cedulaValida == false)
+                {
+                    MessageBox.Show("Cedula Invalida", "Error en la Insercion de datos");
+                }
+                else
+                {
+                    newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
+                    MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
+                    limpiar();//Limpia el atributo .Text de todos los controles de entrada
+                    dataGridView1.DataSource = CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
+                }
             }
-            else
+            catch
             {
-                newEmpleado.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
-                MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion Correcta");
-                limpiar();//Limpia el atributo .Text de todos los controles de entrada
+                MessageBox.Show("Inserte los datos correctamente","Error en la insercion de datos");
             }
                
-            dataGridView1.DataSource= CEmpleado.Visualizar();//Viasualiza los cambios en el Dtgv
-           
-            
         }
 
         //Boton de Confirmar Actualizar datos
         private void button2_Click(object sender, EventArgs e)
         {
-            //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
-            newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text.SQLInyectionClearString(), decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")),cmbTipoUsuario.Text);
+            try
+            {
+                //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
+                newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text.SQLInyectionClearString(), decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")), cmbTipoUsuario.Text);
 
-            //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
-            //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
-            CEmpleado.Actualizar(oldEmpleado, newEmpleado);
+                //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
+                //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
+                CEmpleado.Actualizar(oldEmpleado, newEmpleado);
 
-            btnActualizar.Enabled = false;
-            btnInsertar.Enabled = true;
-            btnActualizar2.Enabled = true;
-            mtxtCedula.Enabled = true;
-            mtxtFechaIngreso.Enabled = true;
-            mtxtFechaNac.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnInsertar.Enabled = true;
+                btnActualizar2.Enabled = true;
+                mtxtCedula.Enabled = true;
+                mtxtFechaIngreso.Enabled = true;
+                mtxtFechaNac.Enabled = true;
 
-            dataGridView1.DataSource = CEmpleado.Visualizar();
-            MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion Correcta");
-            limpiar();
+                dataGridView1.DataSource = CEmpleado.Visualizar();
+                MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion Correcta");
+                limpiar();
+            }
+            catch
+            {
+                MessageBox.Show("Inserte los datos correctamente", "Error en la insercion de datos");
+            }
+            
         }
 
         private void FrmEmpleado_Load(object sender, EventArgs e)
