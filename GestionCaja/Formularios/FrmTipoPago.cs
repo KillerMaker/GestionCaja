@@ -121,11 +121,18 @@ namespace GestionCaja
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             newPago = new CTipoPago(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            newPago.Insertar();
-            dataGridView1.DataSource = CTipoPago.Visualizar();
+            if (newPago.descripcion == "" || newPago.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            }
+            else
+            {
+                newPago.Insertar();
+                dataGridView1.DataSource = CTipoPago.Visualizar();
 
-            MessageBox.Show("Se ha insertado un nuevo tipo de Pago", "Insercion Correcta");
-            limpiar();
+                MessageBox.Show("Se ha insertado un nuevo tipo de Pago", "Insercion Correcta");
+                limpiar();
+            }  
         }
 
         private void btnActualizar2_Click(object sender, EventArgs e)
@@ -164,16 +171,22 @@ namespace GestionCaja
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             newPago = new CTipoPago(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            CTipoPago.Actualizar(oldPago, newPago);
+            if (newPago.descripcion == "" || newPago.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            } else
+            {
+                CTipoPago.Actualizar(oldPago, newPago);
 
-            dataGridView1.DataSource = CTipoPago.Visualizar();
+                dataGridView1.DataSource = CTipoPago.Visualizar();
 
-            btnActualizar.Enabled = false;
-            btnInsertar.Enabled = true;
-            btnActualizar2.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnInsertar.Enabled = true;
+                btnActualizar2.Enabled = true;
 
-            MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
-            limpiar();
+                MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
+                limpiar();
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

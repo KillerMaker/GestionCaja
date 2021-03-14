@@ -86,10 +86,17 @@ namespace GestionCaja
         private void button1_Click(object sender, EventArgs e)
         {
             newDocumento = new CTipoDocumento(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            newDocumento.Insertar();
-            MessageBox.Show("Se ha insertado un nuevo tipo de documento", "Insercion Correcta");
+            if(newDocumento.descripcion == "" || newDocumento.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            }
+            else
+            {
+                newDocumento.Insertar();
+                MessageBox.Show("Se ha insertado un nuevo tipo de documento", "Insercion Correcta");
 
-            dataGridView1.DataSource = CTipoDocumento.Visualizar();
+                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -126,15 +133,22 @@ namespace GestionCaja
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             newDocumento = new CTipoDocumento(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            CTipoDocumento.Actualizar(oldDocumento, newDocumento);
+            if (newDocumento.descripcion == "" || newDocumento.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            }
+            else
+            {
+                CTipoDocumento.Actualizar(oldDocumento, newDocumento);
 
-            btnInsertar.Enabled = true;
-            btnActualizar.Enabled = false;
-            btnActualizar2.Enabled = true;
+                btnInsertar.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnActualizar2.Enabled = true;
 
-            MessageBox.Show("Se ha actualizado el tipo de documento", "Actualizacion Correcta");
-            limpiar();
-            dataGridView1.DataSource= CTipoDocumento.Visualizar();
+                MessageBox.Show("Se ha actualizado el tipo de documento", "Actualizacion Correcta");
+                limpiar();
+                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+            }
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)

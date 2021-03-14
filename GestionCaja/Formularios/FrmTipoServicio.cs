@@ -102,25 +102,38 @@ namespace GestionCaja
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             newServicio = new CTipoServicio(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            CTipoServicio.Actualizar(oldServicio, newServicio);
-            dataGridView1.DataSource = CTipoServicio.Visualizar();
+            if (newServicio.descripcion == "" || newServicio.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            }
+            else
+            {
+                CTipoServicio.Actualizar(oldServicio, newServicio);
+                dataGridView1.DataSource = CTipoServicio.Visualizar();
 
-            MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
-            limpiar();
+                MessageBox.Show("Se ha actualizado el tipo de Servicio", "Actualizacion Correcta");
+                limpiar();
 
-            btnActualizar.Enabled = false;
-            btnActualizar2.Enabled = true;
-            btnInsertar.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnActualizar2.Enabled = true;
+                btnInsertar.Enabled = true;
+            }
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             newServicio = new CTipoServicio(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            newServicio.Insertar();
+            if (newServicio.descripcion == "" || newServicio.estado == "")
+            {
+                MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+            } else
+            {
+                newServicio.Insertar();
 
-            MessageBox.Show("Se ha insertado un nuevo tipo de Servicio", "Insercion Correcta");
-            limpiar();
-            dataGridView1.DataSource = CTipoServicio.Visualizar();
+                MessageBox.Show("Se ha insertado un nuevo tipo de Servicio", "Insercion Correcta");
+                limpiar();
+                dataGridView1.DataSource = CTipoServicio.Visualizar();
+            }
         }
 
         private void btnActualizar2_Click(object sender, EventArgs e)

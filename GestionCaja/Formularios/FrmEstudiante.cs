@@ -99,10 +99,17 @@ namespace GestionCaja
             {
                 //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
                 newEstudiante = new CEstudiante(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), cmbCarrera.Text, mtxtFechaIngreso.Text, cmbEstado.Text);
-                newEstudiante.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
-                dataGridView1.DataSource = CEstudiante.Visualizar();//Viasualiza los cambios en el Dtgv
-                MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion correcta");
-                limpiar();//Limpia el atributo .Text de todos los controles de entrada
+                if(newEstudiante.nombre == "" || newEstudiante.fecha == "" || newEstudiante.genero == "" || newEstudiante.carrera == "" || newEstudiante.fechaRegistro == "" || newEstudiante.estado == "")
+                {
+                    MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+                }
+                else
+                {
+                    newEstudiante.Insertar();//Ejecuta el metodo Insertar del objeto recien creado.
+                    dataGridView1.DataSource = CEstudiante.Visualizar();//Viasualiza los cambios en el Dtgv
+                    MessageBox.Show("Se han insertado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Insercion correcta");
+                    limpiar();//Limpia el atributo .Text de todos los controles de entrada
+                }
             }
             catch
             {
@@ -198,24 +205,31 @@ namespace GestionCaja
                 //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
                 newEstudiante = new CEstudiante(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), cmbCarrera.Text, mtxtFechaIngreso.Text, cmbEstado.Text);
 
-                //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
-                //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
-                CEstudiante.Actualizar(oldEstudiante, newEstudiante);
+                if (newEstudiante.nombre == "" || newEstudiante.fecha == "" || newEstudiante.genero == "" || newEstudiante.carrera == "" || newEstudiante.fechaRegistro == "" || newEstudiante.estado == "")
+                {
+                    MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
+                }
+                else
+                {
+                    //Ejecuta el metodo estatico Actualizar(CPersona oldPersona,CPersona newEmpleado) y 
+                    //le pasa el objeto oldEmpleado como primer parametro y newEmpledo como el segundo.
+                    CEstudiante.Actualizar(oldEstudiante, newEstudiante);
 
-                btnActualizar.Enabled = false;
-                btnInsertar.Enabled = true;
-                btnActualizar2.Enabled = true;
-                mtxtCedula.Enabled = true;
-                mtxtFechaIngreso.Enabled = true;
-                mtxtFechaNac.Enabled = true;
+                    btnActualizar.Enabled = false;
+                    btnInsertar.Enabled = true;
+                    btnActualizar2.Enabled = true;
+                    mtxtCedula.Enabled = true;
+                    mtxtFechaIngreso.Enabled = true;
+                    mtxtFechaNac.Enabled = true;
 
-                dataGridView1.DataSource = CEstudiante.Visualizar();
-                MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion correcta");
-                limpiar();
+                    dataGridView1.DataSource = CEstudiante.Visualizar();
+                    MessageBox.Show("Se han actualizado los datos de: " + txtNombre.Text + " en la Base de Datos.", "Actualizacion correcta");
+                    limpiar();
+                }
             }
             catch 
             {
-                MessageBox.Show("Inserte los datos correctamente","Error en la insercion de datos");
+                MessageBox.Show("Inserte los datos correctamente","Error en la actualizacion de datos");
             }
             
         }
