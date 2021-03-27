@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace GestionCaja.Entidades
@@ -118,7 +119,7 @@ namespace GestionCaja.Entidades
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error en la consulta");
             }
             //Lectura de los registros en la base e datos
 
