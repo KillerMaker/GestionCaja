@@ -46,3 +46,4 @@ C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.CoreCompileInputs.cache
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.exe
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.ModalidadPago.resources

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Utilidades;
@@ -273,5 +274,34 @@ namespace GestionCaja
             this.Close();
         }
 
+        private void txtLaboral_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            //System.Windows.Forms.ComboBox c = new System.Windows.Forms.ComboBox();
+            ////c.Items.AddRange(cmbCampo.Items);
+
+            ////foreach (var s in c.Items)
+            ////    cmbCampo.Items.Remove(s);
+
+
+            //while (cmbCampo.Items.Count != 0)
+            //    cmbCampo.Items.RemoveAt(0);
+
+
+            //List<string> x = new List<string>(2);
+            
+            //if (txtLaboral.SelectedIndex == 1)
+            //{
+            //    x.Add("lalal");
+            //    x.Add("lalalal2");
+            //    cmbCampo.Items.AddRange(x.ToArray());
+            //}
+            //else
+            //{
+            //    x.Add("xddddd");
+            //    cmbCampo.Items.AddRange(x.ToArray());
+            //}  
+        }
     }
 }

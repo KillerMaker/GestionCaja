@@ -160,6 +160,7 @@
             this.txtLaboral.Name = "txtLaboral";
             this.txtLaboral.Size = new System.Drawing.Size(115, 21);
             this.txtLaboral.TabIndex = 18;
+            this.txtLaboral.SelectedIndexChanged += new System.EventHandler(this.txtLaboral_SelectedIndexChanged);
             // 
             // txtEstado
             // 
