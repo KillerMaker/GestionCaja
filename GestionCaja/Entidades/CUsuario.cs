@@ -27,4 +27,5 @@ namespace GestionCaja.Entidades
             this.tipoUsuario = tipoUsuario;
         }
     }
+    //test
 }

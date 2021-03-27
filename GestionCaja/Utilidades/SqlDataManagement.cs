@@ -15,9 +15,9 @@ namespace GestionCaja
         public SqlCommand command { get; set; }
         public SqlDataReader reader { get; set; }
 
-        //Conexion de Guillermo: "Data Source= HP_840_DE_GUILL\\SQLEXPRESS; Initial Catalog = GESTION_CAJAS; Integrated Security = True"
+        //Conexion de Guillermo: "Data Source=DESKTOP-7V51383\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Integrated Security=True"
         //Conexion de Amauris: "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123"
-        public SqlDataManagement(string con= "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123")
+        public SqlDataManagement(string con= "Data Source=DESKTOP-7V51383\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Integrated Security=True")
         {
             try
             {

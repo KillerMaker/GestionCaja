@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Utilidades;
@@ -188,7 +189,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),"");
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),row.Cells[11].Value.ToString());
                 
                 //Se insertan los valores de oldEmpleado en el atributo .Text de los controles de entrada del formulario
                 txtNombre.Text = oldEmpleado.nombre;
@@ -200,6 +201,7 @@ namespace GestionCaja
                 mtxtFechaIngreso.Text = DateTime.Parse( oldEmpleado.fechaIngreso.Replace("-","")).ToString("dd/MM/yyyy");
                 txtSueldo.Text = oldEmpleado.sueldo.ToString();
                 txtEstado.Text = oldEmpleado.estado;
+                cmbTipoUsuario.Text = oldEmpleado.tipoUsuario;
 
                 btnInsertar.Enabled = false;
                 btnActualizar2.Enabled = false;
@@ -272,5 +274,34 @@ namespace GestionCaja
             this.Close();
         }
 
+        private void txtLaboral_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            //System.Windows.Forms.ComboBox c = new System.Windows.Forms.ComboBox();
+            ////c.Items.AddRange(cmbCampo.Items);
+
+            ////foreach (var s in c.Items)
+            ////    cmbCampo.Items.Remove(s);
+
+
+            //while (cmbCampo.Items.Count != 0)
+            //    cmbCampo.Items.RemoveAt(0);
+
+
+            //List<string> x = new List<string>(2);
+            
+            //if (txtLaboral.SelectedIndex == 1)
+            //{
+            //    x.Add("lalal");
+            //    x.Add("lalalal2");
+            //    cmbCampo.Items.AddRange(x.ToArray());
+            //}
+            //else
+            //{
+            //    x.Add("xddddd");
+            //    cmbCampo.Items.AddRange(x.ToArray());
+            //}  
+        }
     }
 }

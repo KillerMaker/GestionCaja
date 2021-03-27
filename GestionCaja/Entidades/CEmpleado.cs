@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace GestionCaja.Entidades
@@ -88,7 +89,7 @@ namespace GestionCaja.Entidades
         //Metodo Visualizar(string Consulta) utiliza un valor por defecto en el argumento consulta
         //con tal de repetir el mismo valor muchas veces por ende siempre que se utilice Visualizar()
         //sin argumentos consulta sera igual a "SELECT * FROM VISTA_EMPLEADO"
-        public static DataTable Visualizar(string consulta= "SELECT * FROM VISTA_EMPLEADO")
+        public static DataTable Visualizar(string consulta= "SELECT * FROM VISTA_EMPLEADO E INNER JOIN USUARIO U ON U.ID_EMPLEADO=E.IDENTIFICADOR")
         {
             dataManagement = new SqlDataManagement();
             DataTable dataTable= new DataTable();
@@ -108,16 +109,17 @@ namespace GestionCaja.Entidades
             dataTable.Columns.Add("Estado");
             dataTable.Columns.Add("Sueldo");
             dataTable.Columns.Add("Tipo de cliente");
+            dataTable.Columns.Add("Tipo de Usuario");
 
             try
             {
                 while (dataManagement.reader.Read())
-                    dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"], dataManagement.reader["FECHA_INGRESO"], dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"]);
+                    dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"], dataManagement.reader["FECHA_INGRESO"], dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"],dataManagement.reader["TIPO_USUARIO"]);
 
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error en la consulta");
             }
             //Lectura de los registros en la base e datos
 

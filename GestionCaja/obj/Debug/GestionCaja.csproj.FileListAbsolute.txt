@@ -30,3 +30,20 @@ C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaj
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
 C:\Users\hp 840 i5\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Login.resources
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Login.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\bin\Debug\GestionCaja.exe.config
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\bin\Debug\GestionCaja.exe
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\bin\Debug\GestionCaja.pdb
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csprojAssemblyReference.cache
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Form1.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmEmpleado.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmEstudiante.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoDocumento.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoPago.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.FrmTipoServicio.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Login.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Properties.Resources.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.GenerateResource.cache
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.CoreCompileInputs.cache
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.exe
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.ModalidadPago.resources
