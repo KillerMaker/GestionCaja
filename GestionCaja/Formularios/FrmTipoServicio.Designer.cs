@@ -61,6 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -117,7 +118,8 @@
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tiposDeDocumentosToolStripMenuItem,
             this.tiposDeServiciosToolStripMenuItem,
-            this.tiposDePagosToolStripMenuItem});
+            this.tiposDePagosToolStripMenuItem,
+            this.modalidadesDePagosToolStripMenuItem});
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
             this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
@@ -125,21 +127,21 @@
             // tiposDeDocumentosToolStripMenuItem
             // 
             this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
-            this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
             this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click_1);
             // 
             // tiposDeServiciosToolStripMenuItem
             // 
             this.tiposDeServiciosToolStripMenuItem.Name = "tiposDeServiciosToolStripMenuItem";
-            this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeServiciosToolStripMenuItem.Text = "Tipos de Servicios";
             this.tiposDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeServiciosToolStripMenuItem_Click_1);
             // 
             // tiposDePagosToolStripMenuItem
             // 
             this.tiposDePagosToolStripMenuItem.Name = "tiposDePagosToolStripMenuItem";
-            this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
             this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click_1);
             // 
@@ -390,6 +392,13 @@
             this.linkLabel1.Text = "Cerrar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // modalidadesDePagosToolStripMenuItem
+            // 
+            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
+            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            // 
             // FrmTipoServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +461,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
     }
 }

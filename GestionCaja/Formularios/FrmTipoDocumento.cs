@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Formularios;
 using GestionCaja.Utilidades;
 
 namespace GestionCaja
@@ -80,7 +81,12 @@ namespace GestionCaja
             Hide();
         }
 
-
+        private void modalidadesDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmModalidadPago(usuario);
+            formulario.Show();
+            Hide();
+        }
 
 
         private void button1_Click(object sender, EventArgs e)
