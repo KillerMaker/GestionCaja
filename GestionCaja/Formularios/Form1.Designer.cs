@@ -41,6 +41,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +94,8 @@
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tiposDeDocumentosToolStripMenuItem,
             this.tiposDeServiciosToolStripMenuItem,
-            this.tiposDePagosToolStripMenuItem});
+            this.tiposDePagosToolStripMenuItem,
+            this.modalidadesDePagosToolStripMenuItem});
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
             this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
@@ -101,21 +103,21 @@
             // tiposDeDocumentosToolStripMenuItem
             // 
             this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
-            this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
             this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click);
             // 
             // tiposDeServiciosToolStripMenuItem
             // 
             this.tiposDeServiciosToolStripMenuItem.Name = "tiposDeServiciosToolStripMenuItem";
-            this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeServiciosToolStripMenuItem.Text = "Tipos de Servicios";
             this.tiposDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeServiciosToolStripMenuItem_Click);
             // 
             // tiposDePagosToolStripMenuItem
             // 
             this.tiposDePagosToolStripMenuItem.Name = "tiposDePagosToolStripMenuItem";
-            this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
             this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click);
             // 
@@ -152,6 +154,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
+            // modalidadesDePagosToolStripMenuItem
+            // 
+            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
+            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +195,7 @@
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
     }
 }
 

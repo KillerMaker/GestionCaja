@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Formularios;
 
 namespace GestionCaja
 {
@@ -33,6 +34,7 @@ namespace GestionCaja
                 tiposDeDocumentosToolStripMenuItem.Enabled = false;
                 tiposDePagosToolStripMenuItem.Enabled = false;
                 tiposDeServiciosToolStripMenuItem.Enabled = false;
+                modalidadesDePagosToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -88,6 +90,13 @@ namespace GestionCaja
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void modalidadesDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmModalidadPago(usuario);
+            formulario.Show();
+            Hide();
         }
     }
 }

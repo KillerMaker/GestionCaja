@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
+using GestionCaja.Formularios;
 using GestionCaja.Utilidades;
 
 
@@ -58,6 +59,13 @@ namespace GestionCaja
         private void tiposDePagosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             formulario = new FrmTipoPago(usuario);
+            formulario.Show();
+            Hide();
+        }
+
+        private void modalidadesDePagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmModalidadPago(usuario);
             formulario.Show();
             Hide();
         }
@@ -303,5 +311,6 @@ namespace GestionCaja
             //    cmbCampo.Items.AddRange(x.ToArray());
             //}  
         }
+
     }
 }

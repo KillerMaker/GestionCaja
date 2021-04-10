@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestionCaja.Entidades;
+using GestionCaja.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,26 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestionCaja.Entidades;
-using GestionCaja.Formularios;
-using GestionCaja.Utilidades;
 
-namespace GestionCaja
+namespace GestionCaja.Formularios
 {
-    public partial class FrmTipoDocumento : Form
+    public partial class FrmModalidadPago : Form
     {
-        public FrmTipoDocumento(CUsuario usuario)
+        public FrmModalidadPago(CUsuario usuario)
         {
             this.usuario = usuario;
             InitializeComponent();
         }
-        
+
         private Form formulario;
-        private CTipoDocumento oldDocumento;
-        private CTipoDocumento newDocumento;
+        private CModalidadPago oldModalidad;
+        private CModalidadPago newModalidad;
         private CUsuario usuario;
 
-        private void FrmDocumento_Load(object sender, EventArgs e)
+        private void FrmModalidadPago_Load(object sender, EventArgs e)
         {
             lblUsername.Text = usuario.nombreUsuario;
 
@@ -88,20 +87,19 @@ namespace GestionCaja
             Hide();
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
-            newDocumento = new CTipoDocumento(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            if(newDocumento.descripcion == "" || newDocumento.estado == "")
+            newModalidad = new CModalidadPago(rtxtDescripcion.Text.SQLInyectionClearString(), (int)numericUpDown1.Value, cmbEstado.Text);
+            if (newModalidad.descripcion == "" || newModalidad.estado == "")
             {
                 MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
             }
             else
             {
-                newDocumento.Insertar();
-                MessageBox.Show("Se ha insertado un nuevo tipo de documento", "Insercion Correcta");
+                newModalidad.Insertar();
+                MessageBox.Show("Se ha insertado una nueva modalidad de pago", "Insercion Correcta");
 
-                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+                dataGridView1.DataSource = CModalidadPago.Visualizar();
             }
         }
 
@@ -126,65 +124,67 @@ namespace GestionCaja
                 DataGridViewRow row = new DataGridViewRow();
                 row = dataGridView1.SelectedRows[0];
 
-                oldDocumento = new CTipoDocumento(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
+                oldModalidad = new CModalidadPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), int.Parse(row.Cells[2].Value.ToString()), row.Cells[3].Value.ToString());
 
-                rtxtDescripcion.Text = oldDocumento.descripcion;
-                cmbEstado.Text = oldDocumento.estado;
+                rtxtDescripcion.Text = oldModalidad.descripcion;
+                numericUpDown1.Value = oldModalidad.numeroCuota;
+                cmbEstado.Text = oldModalidad.estado;
 
-                dataGridView1.DataSource = CTipoDocumento.Visualizar();
+                dataGridView1.DataSource = CModalidadPago.Visualizar();
             }
 
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            newDocumento = new CTipoDocumento(rtxtDescripcion.Text.SQLInyectionClearString(), cmbEstado.Text);
-            if (newDocumento.descripcion == "" || newDocumento.estado == "")
+            newModalidad = new CModalidadPago(rtxtDescripcion.Text.SQLInyectionClearString(), (int)numericUpDown1.Value, cmbEstado.Text);
+            if (newModalidad.descripcion == "" || newModalidad.estado == "")
             {
                 MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
             }
             else
             {
-                CTipoDocumento.Actualizar(oldDocumento, newDocumento);
+                CModalidadPago.Actualizar(oldModalidad, newModalidad);
 
-                btnInsertar.Enabled = true;
+                dataGridView1.DataSource = CModalidadPago.Visualizar();
+
                 btnActualizar.Enabled = false;
+                btnInsertar.Enabled = true;
                 btnActualizar2.Enabled = true;
 
-                MessageBox.Show("Se ha actualizado el tipo de documento", "Actualizacion Correcta");
+                MessageBox.Show("Se ha actualizado la modalidad de pagos", "Actualizacion Correcta");
                 limpiar();
-                dataGridView1.DataSource = CTipoDocumento.Visualizar();
             }
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CTipoDocumento.Visualizar() : dataGridView1.DataSource;
+            dataGridView1.DataSource = dataGridView1.Rows.Count < 1 ? CModalidadPago.Visualizar() : dataGridView1.DataSource;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CTipoDocumento.Visualizar($"SELECT * FROM TIPO_DOCUMENTO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
+            dataGridView1.DataSource = CModalidadPago.Visualizar($"SELECT * FROM MODALIDAD_PAGO WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
-                MessageBox.Show("Seleccione un elemento para actualizar", "Error al actualizar");
+            if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Seleccione solo un elemento", "Error al actualizar datos");
 
-            else if (dataGridView1.SelectedRows.Count > 1)
-                MessageBox.Show("Seleccione solo un elemento por favor", "Error al actualizar");
+            else if (dataGridView1.SelectedRows.Count < 1)
+                MessageBox.Show("Seleccione un elemento", "Error al actualizar datos");
 
             else
             {
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
+                oldModalidad = new CModalidadPago(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), int.Parse(row.Cells[2].Value.ToString()) , row.Cells[3].Value.ToString());
+                oldModalidad.Eliminar();
 
-                DataGridViewRow row = new DataGridViewRow();
-                row = dataGridView1.SelectedRows[0];
+                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.");
+                dataGridView1.DataSource = CModalidadPago.Visualizar();
+                limpiar();
 
-                oldDocumento = new CTipoDocumento(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString());
-                MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.","Cambio Correcto");
-                oldDocumento.Eliminar();
-                dataGridView1.DataSource = CTipoDocumento.Visualizar();
             }
         }
 
