@@ -73,11 +73,12 @@
             this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -443,6 +444,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnExportar);
             this.groupBox3.Controls.Add(this.btnActualizar2);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -455,7 +457,7 @@
             // 
             // btnActualizar2
             // 
-            this.btnActualizar2.Location = new System.Drawing.Point(381, 337);
+            this.btnActualizar2.Location = new System.Drawing.Point(348, 337);
             this.btnActualizar2.Name = "btnActualizar2";
             this.btnActualizar2.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar2.TabIndex = 2;
@@ -560,6 +562,13 @@
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
             this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click_1);
             // 
+            // modalidadesDePagosToolStripMenuItem
+            // 
+            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
+            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
@@ -593,12 +602,15 @@
             this.linkLabel1.Text = "Cerrar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // modalidadesDePagosToolStripMenuItem
+            // btnExportar
             // 
-            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
-            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
-            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            this.btnExportar.Location = new System.Drawing.Point(460, 337);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 8;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // FrmEmpleado
             // 
@@ -679,5 +691,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox txtSueldo;
         private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

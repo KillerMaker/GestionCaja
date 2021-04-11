@@ -1,0 +1,6 @@
+Identificador, Nombre, Fecha de Nacimiento, Genero, Cedula, Saldo, Tanda Laboral, Porciento de Comision, Fecha de Ingreso, Estado, Sueldo, Tipo de Cliente, Tipo de Usuario
+1,Guillermo Matos Romero,2/2/2001 12:00:00 AM,M,00000000000,10000.00,Nocturna,0.10,1/1/2021 12:00:00 AM,Activo,125000.00,EMPLEADO,Administrador,
+2,Amauris Gabriel Archibald Perez,10/29/2000 12:00:00 AM,M,40210306391,0.00,Nocturna,0.00,2/22/2021 12:00:00 AM,Activo,100000.00,EMPLEADO,Administrador,
+3,Jose Maria Aranjo,8/16/1993 12:00:00 AM,M,00000000000,6000.00,Diurna,0.00,3/1/2005 12:00:00 AM,Activo,250000.00,EMPLEADO,Empleado,
+4,Maria Jose Mansueta,6/6/1990 12:00:00 AM,F,00000000000,20000.00,Mixta,0.10,9/26/2000 12:00:00 AM,Activo,50000.00,EMPLEADO,Empleado,
+5,Fernando Florentino,9/30/2002 12:00:00 AM,M,00000000000,0.00,Diurna,0.05,3/1/2021 12:00:00 AM,Activo,23000.00,EMPLEADO,Empleado,
