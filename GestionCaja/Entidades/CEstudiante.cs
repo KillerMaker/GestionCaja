@@ -90,13 +90,14 @@ namespace GestionCaja.Entidades
             dataTable.Columns.Add("Fecha de nacimiento");
             dataTable.Columns.Add("Genero");
             dataTable.Columns.Add("Cedula");
+            dataTable.Columns.Add("Saldo");
             dataTable.Columns.Add("Carrera");
             dataTable.Columns.Add("Fecha de registro");
             dataTable.Columns.Add("Estado");
 
             //Lectura de los registros en la base e datos
             while (dataManagement.reader.Read())
-                dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["CARRERA"], dataManagement.reader["FECHA_REGISTRO"], dataManagement.reader["ESTADO"]);
+                dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"],dataManagement.reader["SALDO"], dataManagement.reader["CARRERA"], dataManagement.reader["FECHA_REGISTRO"], dataManagement.reader["ESTADO"]);
 
             return dataTable;
         }

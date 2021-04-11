@@ -103,6 +103,7 @@ namespace GestionCaja.Entidades
             dataTable.Columns.Add("Fecha de nacimiento");
             dataTable.Columns.Add("Genero");
             dataTable.Columns.Add("Cedula");
+            dataTable.Columns.Add("Saldo");
             dataTable.Columns.Add("Tanda Laboral");
             dataTable.Columns.Add("Porcetaje de comision");
             dataTable.Columns.Add("Fecha de ingreso");
@@ -114,7 +115,7 @@ namespace GestionCaja.Entidades
             try
             {
                 while (dataManagement.reader.Read())
-                    dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"], dataManagement.reader["FECHA_INGRESO"], dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"],dataManagement.reader["TIPO_USUARIO"]);
+                    dataTable.Rows.Add(dataManagement.reader["IDENTIFICADOR"], dataManagement.reader["NOMBRE"], dataManagement.reader["FECHA_NACIMIENTO"], dataManagement.reader["GENERO"], dataManagement.reader["CEDULA"],dataManagement.reader["SALDO"], dataManagement.reader["TANDA_LABOR"], dataManagement.reader["PORCIENTO_COMISION"], dataManagement.reader["FECHA_INGRESO"], dataManagement.reader["ESTADO"], dataManagement.reader["SUELDO"], dataManagement.reader["TIPO_CLIENTE"],dataManagement.reader["TIPO_USUARIO"]);
 
             }
             catch(Exception ex)
@@ -122,9 +123,13 @@ namespace GestionCaja.Entidades
                 MessageBox.Show(ex.ToString(),"Error en la consulta");
             }
             //Lectura de los registros en la base e datos
-
+            x(null);
             return dataTable;
                 
+        }
+        public static void x(int? i)
+        {
+            Console.WriteLine(i);
         }
     }
 }

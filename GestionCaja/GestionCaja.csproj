@@ -71,11 +71,18 @@
     <Compile Include="Entidades\CPersona.cs" />
     <Compile Include="Entidades\CUsuario.cs" />
     <Compile Include="Entidades\CModalidadPago.cs" />
+    <Compile Include="Entidades\RegMovCaja.cs" />
     <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmRegMovCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmRegMovCaja.Designer.cs">
+      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmTipoDocumento.cs">
       <SubType>Form</SubType>
@@ -131,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmEstudiante.resx">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmRegMovCaja.resx">
+      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmTipoDocumento.resx">
       <DependentUpon>FrmTipoDocumento.cs</DependentUpon>

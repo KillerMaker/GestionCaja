@@ -48,3 +48,4 @@ C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.exe
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.pdb
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmModalidadPago.resources
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmModalidadPago.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmRegMovCaja.resources
