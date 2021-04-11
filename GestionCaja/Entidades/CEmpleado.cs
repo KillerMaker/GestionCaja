@@ -123,13 +123,9 @@ namespace GestionCaja.Entidades
                 MessageBox.Show(ex.ToString(),"Error en la consulta");
             }
             //Lectura de los registros en la base e datos
-            x(null);
             return dataTable;
                 
         }
-        public static void x(int? i)
-        {
-            Console.WriteLine(i);
-        }
+
     }
 }

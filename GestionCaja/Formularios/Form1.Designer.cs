@@ -37,11 +37,12 @@
             this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.administracionToolStripMenuItem,
+            this.movimientosToolStripMenuItem,
             this.mantenimientoToolStripMenuItem,
             this.ajustesToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -78,14 +80,14 @@
             // estudiantesToolStripMenuItem1
             // 
             this.estudiantesToolStripMenuItem1.Name = "estudiantesToolStripMenuItem1";
-            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.estudiantesToolStripMenuItem1.Text = "Estudiantes";
             this.estudiantesToolStripMenuItem1.Click += new System.EventHandler(this.estudiantesToolStripMenuItem1_Click);
             // 
             // empleadoToolStripMenuItem1
             // 
             this.empleadoToolStripMenuItem1.Name = "empleadoToolStripMenuItem1";
-            this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.empleadoToolStripMenuItem1.Text = "Empleado";
             this.empleadoToolStripMenuItem1.Click += new System.EventHandler(this.empleadoToolStripMenuItem1_Click);
             // 
@@ -121,6 +123,13 @@
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
             this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click);
             // 
+            // modalidadesDePagosToolStripMenuItem
+            // 
+            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
+            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
@@ -154,12 +163,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
-            // modalidadesDePagosToolStripMenuItem
+            // movimientosToolStripMenuItem
             // 
-            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
-            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
-            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
+            this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.movimientosToolStripMenuItem.Text = "Movimientos";
+            this.movimientosToolStripMenuItem.Click += new System.EventHandler(this.movimientosToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -196,6 +205,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimientosToolStripMenuItem;
     }
 }
 

@@ -71,7 +71,7 @@
     <Compile Include="Entidades\CPersona.cs" />
     <Compile Include="Entidades\CUsuario.cs" />
     <Compile Include="Entidades\CModalidadPago.cs" />
-    <Compile Include="Entidades\RegMovCaja.cs" />
+    <Compile Include="Entidades\CRegMovCaja.cs" />
     <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -63,7 +63,6 @@ namespace GestionCaja.Formularios
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnActualizar2 = new System.Windows.Forms.Button();
@@ -77,6 +76,8 @@ namespace GestionCaja.Formularios
             this.txtValor = new System.Windows.Forms.TextBox();
             this.cmbCriterio = new System.Windows.Forms.ComboBox();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbTipoServicio = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -138,12 +139,14 @@ namespace GestionCaja.Formularios
             this.estudiantesToolStripMenuItem1.Name = "estudiantesToolStripMenuItem1";
             this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.estudiantesToolStripMenuItem1.Text = "Estudiantes";
+            this.estudiantesToolStripMenuItem1.Click += new System.EventHandler(this.estudiantesToolStripMenuItem1_Click);
             // 
             // empleadoToolStripMenuItem1
             // 
             this.empleadoToolStripMenuItem1.Name = "empleadoToolStripMenuItem1";
             this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.empleadoToolStripMenuItem1.Text = "Empleado";
+            this.empleadoToolStripMenuItem1.Click += new System.EventHandler(this.empleadoToolStripMenuItem1_Click);
             // 
             // mantenimientoToolStripMenuItem
             // 
@@ -161,24 +164,28 @@ namespace GestionCaja.Formularios
             this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
             this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
+            this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click);
             // 
             // tiposDeServiciosToolStripMenuItem
             // 
             this.tiposDeServiciosToolStripMenuItem.Name = "tiposDeServiciosToolStripMenuItem";
             this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeServiciosToolStripMenuItem.Text = "Tipos de Servicios";
+            this.tiposDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeServiciosToolStripMenuItem_Click);
             // 
             // tiposDePagosToolStripMenuItem
             // 
             this.tiposDePagosToolStripMenuItem.Name = "tiposDePagosToolStripMenuItem";
             this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
+            this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click);
             // 
             // modalidadesDePagosToolStripMenuItem
             // 
             this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
             this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -191,6 +198,7 @@ namespace GestionCaja.Formularios
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -240,6 +248,7 @@ namespace GestionCaja.Formularios
             this.rbtnServicio.TabStop = true;
             this.rbtnServicio.Text = "Servicio";
             this.rbtnServicio.UseVisualStyleBackColor = true;
+            this.rbtnServicio.CheckedChanged += new System.EventHandler(this.rbtnServicio_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -286,7 +295,7 @@ namespace GestionCaja.Formularios
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 252);
+            this.label5.Location = new System.Drawing.Point(21, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 18;
@@ -295,14 +304,14 @@ namespace GestionCaja.Formularios
             // cmbTipoPago
             // 
             this.cmbTipoPago.FormattingEnabled = true;
-            this.cmbTipoPago.Location = new System.Drawing.Point(110, 252);
+            this.cmbTipoPago.Location = new System.Drawing.Point(110, 283);
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(142, 21);
             this.cmbTipoPago.TabIndex = 19;
             // 
             // mtxtFecha
             // 
-            this.mtxtFecha.Location = new System.Drawing.Point(110, 291);
+            this.mtxtFecha.Location = new System.Drawing.Point(110, 322);
             this.mtxtFecha.Name = "mtxtFecha";
             this.mtxtFecha.Size = new System.Drawing.Size(142, 20);
             this.mtxtFecha.TabIndex = 20;
@@ -310,7 +319,7 @@ namespace GestionCaja.Formularios
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 294);
+            this.label7.Location = new System.Drawing.Point(21, 325);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 21;
@@ -318,7 +327,7 @@ namespace GestionCaja.Formularios
             // 
             // mtxtMonto
             // 
-            this.mtxtMonto.Location = new System.Drawing.Point(110, 332);
+            this.mtxtMonto.Location = new System.Drawing.Point(110, 363);
             this.mtxtMonto.Name = "mtxtMonto";
             this.mtxtMonto.Size = new System.Drawing.Size(142, 20);
             this.mtxtMonto.TabIndex = 22;
@@ -326,7 +335,7 @@ namespace GestionCaja.Formularios
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 339);
+            this.label8.Location = new System.Drawing.Point(21, 370);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 23;
@@ -335,7 +344,7 @@ namespace GestionCaja.Formularios
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(110, 370);
+            this.cmbEstado.Location = new System.Drawing.Point(110, 401);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(142, 21);
             this.cmbEstado.TabIndex = 24;
@@ -343,7 +352,7 @@ namespace GestionCaja.Formularios
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 378);
+            this.label9.Location = new System.Drawing.Point(21, 409);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 25;
@@ -351,9 +360,10 @@ namespace GestionCaja.Formularios
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.cmbTipoServicio);
             this.groupBox2.Controls.Add(this.btnLimpiar);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.btnActualizar);
             this.groupBox2.Controls.Add(this.btnInsertar);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label2);
@@ -371,38 +381,30 @@ namespace GestionCaja.Formularios
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 44);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 474);
+            this.groupBox2.Size = new System.Drawing.Size(344, 512);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(247, 424);
+            this.btnLimpiar.Location = new System.Drawing.Point(177, 468);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 19;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Enabled = false;
-            this.btnActualizar.Location = new System.Drawing.Point(140, 424);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 18;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(29, 424);
+            this.btnInsertar.Location = new System.Drawing.Point(67, 468);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 17;
             this.btnInsertar.Text = "Insertar";
             this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // groupBox3
             // 
@@ -424,6 +426,7 @@ namespace GestionCaja.Formularios
             this.btnActualizar2.TabIndex = 2;
             this.btnActualizar2.Text = "Actualizar";
             this.btnActualizar2.UseVisualStyleBackColor = true;
+            this.btnActualizar2.Click += new System.EventHandler(this.btnActualizar2_Click);
             // 
             // btnEliminar
             // 
@@ -433,6 +436,7 @@ namespace GestionCaja.Formularios
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dataGridView1
             // 
@@ -443,6 +447,7 @@ namespace GestionCaja.Formularios
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(664, 301);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // groupBox4
             // 
@@ -468,6 +473,7 @@ namespace GestionCaja.Formularios
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label12
             // 
@@ -539,6 +545,23 @@ namespace GestionCaja.Formularios
             this.cmbCampo.Size = new System.Drawing.Size(123, 21);
             this.cmbCampo.TabIndex = 0;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 250);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Tipo Servicio";
+            // 
+            // cmbTipoServicio
+            // 
+            this.cmbTipoServicio.FormattingEnabled = true;
+            this.cmbTipoServicio.Location = new System.Drawing.Point(110, 247);
+            this.cmbTipoServicio.Name = "cmbTipoServicio";
+            this.cmbTipoServicio.Size = new System.Drawing.Size(142, 21);
+            this.cmbTipoServicio.TabIndex = 27;
+            // 
             // FrmRegMovCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,6 +576,7 @@ namespace GestionCaja.Formularios
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmRegMovCaja";
             this.Text = "FrmRegMovCaja";
+            this.Load += new System.EventHandler(this.FrmRegMovCaja_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -604,7 +628,6 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnActualizar2;
@@ -618,5 +641,7 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.ComboBox cmbCriterio;
         private System.Windows.Forms.ComboBox cmbCampo;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbTipoServicio;
     }
 }
