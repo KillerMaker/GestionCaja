@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Formularios;
 using GestionCaja.Utilidades;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace GestionCaja
 {
-    public partial class FrmTipoServicio : Form
+    public partial class FrmTipoServicio : MetroForm
     {
         public FrmTipoServicio(CUsuario usuario)
         {

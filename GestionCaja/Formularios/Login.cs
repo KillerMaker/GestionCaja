@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
 using System.Data.SqlClient;
+using MetroFramework;
+using MetroFramework.Forms;
 
 
 namespace GestionCaja
 {
-    public partial class Login : Form
+    public partial class Login : MetroForm
     {
         public Login()
         {
@@ -75,6 +77,11 @@ namespace GestionCaja
 
             if(s==false)
                 MessageBox.Show("Usuario no valido", "Error en Login");
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

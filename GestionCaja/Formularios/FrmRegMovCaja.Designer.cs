@@ -79,6 +79,7 @@ namespace GestionCaja.Formularios
             this.txtValor = new System.Windows.Forms.TextBox();
             this.cmbCriterio = new System.Windows.Forms.ComboBox();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
+            this.movimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,7 +91,7 @@ namespace GestionCaja.Formularios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(882, 9);
+            this.label1.Location = new System.Drawing.Point(881, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 5;
@@ -99,7 +100,7 @@ namespace GestionCaja.Formularios
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(952, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(953, 47);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(70, 13);
             this.linkLabel1.TabIndex = 4;
@@ -112,12 +113,13 @@ namespace GestionCaja.Formularios
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.administracionToolStripMenuItem,
+            this.movimientoToolStripMenuItem,
             this.mantenimientoToolStripMenuItem,
             this.ajustesToolStripMenuItem,
             this.salirToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(20, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1035, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -316,10 +318,12 @@ namespace GestionCaja.Formularios
             // 
             // mtxtFecha
             // 
-            this.mtxtFecha.Location = new System.Drawing.Point(110, 322);
+            this.mtxtFecha.Location = new System.Drawing.Point(163, 322);
+            this.mtxtFecha.Mask = "0000/00/00";
             this.mtxtFecha.Name = "mtxtFecha";
-            this.mtxtFecha.Size = new System.Drawing.Size(142, 20);
+            this.mtxtFecha.Size = new System.Drawing.Size(89, 20);
             this.mtxtFecha.TabIndex = 20;
+            this.mtxtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -332,9 +336,10 @@ namespace GestionCaja.Formularios
             // 
             // mtxtMonto
             // 
-            this.mtxtMonto.Location = new System.Drawing.Point(110, 363);
+            this.mtxtMonto.Location = new System.Drawing.Point(163, 363);
+            this.mtxtMonto.Mask = "000,000.00 RD$";
             this.mtxtMonto.Name = "mtxtMonto";
-            this.mtxtMonto.Size = new System.Drawing.Size(142, 20);
+            this.mtxtMonto.Size = new System.Drawing.Size(89, 20);
             this.mtxtMonto.TabIndex = 22;
             // 
             // label8
@@ -388,7 +393,7 @@ namespace GestionCaja.Formularios
             this.groupBox2.Controls.Add(this.cmbTipoDocumento);
             this.groupBox2.Controls.Add(this.cmbTipoPago);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 44);
+            this.groupBox2.Location = new System.Drawing.Point(20, 119);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(344, 512);
             this.groupBox2.TabIndex = 26;
@@ -440,16 +445,16 @@ namespace GestionCaja.Formularios
             this.groupBox3.Controls.Add(this.btnActualizar2);
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(377, 119);
+            this.groupBox3.Location = new System.Drawing.Point(376, 211);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(676, 399);
+            this.groupBox3.Size = new System.Drawing.Size(676, 420);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tabla de datos";
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(485, 349);
+            this.btnExportar.Location = new System.Drawing.Point(401, 376);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 23);
             this.btnExportar.TabIndex = 29;
@@ -459,7 +464,7 @@ namespace GestionCaja.Formularios
             // 
             // btnActualizar2
             // 
-            this.btnActualizar2.Location = new System.Drawing.Point(362, 349);
+            this.btnActualizar2.Location = new System.Drawing.Point(305, 376);
             this.btnActualizar2.Name = "btnActualizar2";
             this.btnActualizar2.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar2.TabIndex = 2;
@@ -469,7 +474,7 @@ namespace GestionCaja.Formularios
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(231, 349);
+            this.btnEliminar.Location = new System.Drawing.Point(209, 376);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 1;
@@ -484,7 +489,7 @@ namespace GestionCaja.Formularios
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 22);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(664, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(664, 322);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -497,7 +502,7 @@ namespace GestionCaja.Formularios
             this.groupBox4.Controls.Add(this.txtValor);
             this.groupBox4.Controls.Add(this.cmbCriterio);
             this.groupBox4.Controls.Add(this.cmbCampo);
-            this.groupBox4.Location = new System.Drawing.Point(377, 44);
+            this.groupBox4.Location = new System.Drawing.Point(376, 119);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(676, 57);
             this.groupBox4.TabIndex = 27;
@@ -584,11 +589,18 @@ namespace GestionCaja.Formularios
             this.cmbCampo.Size = new System.Drawing.Size(123, 21);
             this.cmbCampo.TabIndex = 0;
             // 
+            // movimientoToolStripMenuItem
+            // 
+            this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
+            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.movimientoToolStripMenuItem.Text = "Movimiento";
+            this.movimientoToolStripMenuItem.Click += new System.EventHandler(this.movimientoToolStripMenuItem_Click);
+            // 
             // FrmRegMovCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 598);
+            this.ClientSize = new System.Drawing.Size(1075, 726);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -597,6 +609,7 @@ namespace GestionCaja.Formularios
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmRegMovCaja";
+            this.Style = MetroFramework.MetroColorStyle.Yellow;
             this.Text = "FrmRegMovCaja";
             this.Load += new System.EventHandler(this.FrmRegMovCaja_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -666,5 +679,6 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbTipoServicio;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.ToolStripMenuItem movimientoToolStripMenuItem;
     }
 }

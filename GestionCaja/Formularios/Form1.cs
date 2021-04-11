@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Formularios;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace GestionCaja
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
 
         private CUsuario usuario;

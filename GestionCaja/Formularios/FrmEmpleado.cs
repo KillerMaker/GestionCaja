@@ -11,11 +11,14 @@ using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Formularios;
 using GestionCaja.Utilidades;
+using MetroFramework;
+using MetroFramework.Forms;
 
 
 namespace GestionCaja
 {
-    public partial class FrmEmpleado :Form
+    
+    public partial class FrmEmpleado : MetroFramework.Forms.MetroForm
     {
         private Form formulario;
         private CEmpleado oldEmpleado;
@@ -104,10 +107,12 @@ namespace GestionCaja
             {
                 //Crea un objeto CEmpleado con los valores .text de los controles de entrada del formulario.
                 newEmpleado = new CEmpleado(txtNombre.Text.SQLInyectionClearString(), mtxtFechaNac.Text, cmbGenero.Text, mtxtCedula.Text.Replace("-", ""), txtLaboral.Text, (nudComision.Value) / 100, mtxtFechaIngreso.Text, txtEstado.Text, decimal.Parse(txtSueldo.Text.Replace(",", "").Replace("RD$", "")), cmbTipoUsuario.Text);
+                
                 if(newEmpleado.nombre == "" || newEmpleado.fecha == "" || newEmpleado.genero == "" || newEmpleado.tandaLabor == "" || newEmpleado.fechaIngreso == "" || newEmpleado.estado == "" || newEmpleado.tipoUsuario == "")
                 {
                     MessageBox.Show("Se deben completar todos los campos", "Error en la Insercion de datos");
-                } else
+                } 
+                else
                 {
                     if (newEmpleado.cedulaValida == false)
                     {
@@ -197,7 +202,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),decimal.Parse( row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(),row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),row.Cells[11].Value.ToString());
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[6].Value.ToString(),decimal.Parse( row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(),row.Cells[9].Value.ToString(), decimal.Parse(row.Cells[10].Value.ToString()),row.Cells[12].Value.ToString());
                 
                 //Se insertan los valores de oldEmpleado en el atributo .Text de los controles de entrada del formulario
                 txtNombre.Text = oldEmpleado.nombre;
@@ -259,7 +264,7 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(), decimal.Parse(row.Cells[6].Value.ToString()), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString(), decimal.Parse(row.Cells[9].Value.ToString()),"");
+                oldEmpleado = new CEmpleado(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[6].Value.ToString(), decimal.Parse(row.Cells[7].Value.ToString()), row.Cells[8].Value.ToString(), row.Cells[9].Value.ToString(), decimal.Parse(row.Cells[10].Value.ToString()),"");
                 MessageBox.Show("Se ha cambiado el estado de: " + row.Cells[1].Value.ToString() + " a Inactivo.", "Eliminacion Correcta");
                 oldEmpleado.Eliminar();
             }

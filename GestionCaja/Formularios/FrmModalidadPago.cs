@@ -9,10 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace GestionCaja.Formularios
 {
-    public partial class FrmModalidadPago : Form
+    public partial class FrmModalidadPago : MetroForm
     {
         public FrmModalidadPago(CUsuario usuario)
         {
@@ -223,6 +225,11 @@ namespace GestionCaja.Formularios
             formulario = new FrmRegMovCaja(usuario);
             formulario.Show();
             Hide();
+        }
+
+        private void FrmModalidadPago_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

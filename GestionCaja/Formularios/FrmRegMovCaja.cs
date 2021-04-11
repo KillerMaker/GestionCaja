@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Utilidades;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace GestionCaja.Formularios
 {
-    public partial class FrmRegMovCaja : Form
+    public partial class FrmRegMovCaja : MetroForm
     {
         private Form formulario;
         private CUsuario usuario;
@@ -120,7 +122,7 @@ namespace GestionCaja.Formularios
                         break;
                     }
                 }
-                regMovCaja = new CRegMovCaja(txtVendedor.Text.SQLInyectionClearString(), txtCliente.Text.SQLInyectionClearString(), tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text), cmbEstado.Text, tipoDocumento);
+                regMovCaja = new CRegMovCaja(txtVendedor.Text.SQLInyectionClearString(), txtCliente.Text.SQLInyectionClearString(), tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text, tipoDocumento);
             }
             else
             {
@@ -132,7 +134,7 @@ namespace GestionCaja.Formularios
                         break;
                     }
                 }
-                regMovCaja = new CRegMovCaja(txtVendedor.Text, txtCliente.Text, tipoServicio, tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text), cmbEstado.Text);
+                regMovCaja = new CRegMovCaja(txtVendedor.Text, txtCliente.Text, tipoServicio, tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text);
             }
 
             regMovCaja.Insertar();
@@ -317,6 +319,13 @@ namespace GestionCaja.Formularios
         {
             formulario = new FrmExportaciones((DataTable)dataGridView1.DataSource, this);
             formulario.Show();
+        }
+
+        private void movimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmRegMovCaja(usuario);
+            formulario.Show();
+            Hide();
         }
     }
 }

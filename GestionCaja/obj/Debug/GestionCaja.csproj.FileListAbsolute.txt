@@ -52,3 +52,5 @@ C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formul
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmRegMovCaja.resources
 C:\Users\amaur_pa6bdby\Source\Repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmExportaciones.resources
 C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.Formularios.FrmExportaciones.resources
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\bin\Debug\MetroFramework.dll
+C:\Users\emman\source\repos\GestionCaja\GestionCaja\obj\Debug\GestionCaja.csproj.CopyComplete

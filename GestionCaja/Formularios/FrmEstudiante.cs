@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using GestionCaja.Entidades;
 using GestionCaja.Formularios;
 using GestionCaja.Utilidades;
+using MetroFramework;
+using MetroFramework.Forms;
 
 namespace GestionCaja
 {
-    public partial class FrmEstudiante : Form
+    public partial class FrmEstudiante : MetroForm
     {
         private Form formulario;
         private CEstudiante oldEstudiante;
@@ -157,15 +159,15 @@ namespace GestionCaja
 
                 //Se instancia oldEmpleado con el segundo constructor de la clase, y se asignan los valores
                 //de las celdas de row a oldEmpleado
-                oldEstudiante = new CEstudiante(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString());
+                oldEstudiante = new CEstudiante(int.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString(), row.Cells[4].Value.ToString(), row.Cells[6].Value.ToString(),row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString());
 
                 //Se insertan los valores de oldEmpleado en el atributo .Text de los controles de entrada del formulario
                 txtNombre.Text = oldEstudiante.nombre;
-                mtxtFechaNac.Text = DateTime.Parse(oldEstudiante.fecha.Replace("-", "")).ToString("dd/MM/yyyy");
+                mtxtFechaNac.Text = DateTime.Parse(oldEstudiante.fecha.Replace("-", "")).ToString("yyyy/MM/dd");
                 cmbGenero.Text = oldEstudiante.genero;
                 mtxtCedula.Text = oldEstudiante.cedula.Replace("-", "");
                 cmbCarrera.Text = oldEstudiante.carrera;
-                mtxtFechaIngreso.Text = DateTime.Parse(oldEstudiante.fechaRegistro.Replace("-", "")).ToString("dd/MM/yyyy");
+                mtxtFechaIngreso.Text = DateTime.Parse(oldEstudiante.fechaRegistro.Replace("-", "")).ToString("yyyy/MM/dd");
                 cmbEstado.Text = oldEstudiante.estado;
 
                 btnInsertar.Enabled = false;

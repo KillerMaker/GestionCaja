@@ -1,0 +1,4 @@
+sep=,
+Id, Nombre Encargado, Nombre Cliente, Id Cliente, Tipo Servicio, Tipo Documento, Tipo Pago, Fecha, Monto, Estado
+3,Guillermo Matos Romero,Jose Maria Aranjo,3,,Factura,Efectivo,1/1/2009 12:00:00 AM,6000.00,Inactivo,
+4,Jose Maria Aranjo,Manuel Medina,6,Revision,,Con Tarjeta Presencial,3/3/2010 12:00:00 AM,40000.00,Activo,

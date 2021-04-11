@@ -40,7 +40,7 @@ namespace GestionCaja.Formularios
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 34);
+            this.label2.Location = new System.Drawing.Point(14, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 16;
@@ -49,7 +49,7 @@ namespace GestionCaja.Formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 72);
+            this.label3.Location = new System.Drawing.Point(14, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 17;
@@ -57,21 +57,21 @@ namespace GestionCaja.Formularios
             // 
             // txtRuta
             // 
-            this.txtRuta.Location = new System.Drawing.Point(93, 34);
+            this.txtRuta.Location = new System.Drawing.Point(95, 73);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(152, 20);
             this.txtRuta.TabIndex = 18;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(93, 72);
+            this.txtNombre.Location = new System.Drawing.Point(95, 111);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(152, 20);
             this.txtNombre.TabIndex = 19;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(203, 129);
+            this.btnCancelar.Location = new System.Drawing.Point(205, 168);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 21;
@@ -81,7 +81,7 @@ namespace GestionCaja.Formularios
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(93, 129);
+            this.btnExportar.Location = new System.Drawing.Point(95, 168);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 23);
             this.btnExportar.TabIndex = 20;
@@ -93,14 +93,15 @@ namespace GestionCaja.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 174);
+            this.ClientSize = new System.Drawing.Size(327, 220);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtRuta);
             this.Controls.Add(this.txtNombre);
-            this.Nombre = "FrmExportaciones";
+            this.Name = "FrmExportaciones";
+            this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "FrmExportaciones";
             this.Load += new System.EventHandler(this.Exportaciones_Load);
             this.ResumeLayout(false);

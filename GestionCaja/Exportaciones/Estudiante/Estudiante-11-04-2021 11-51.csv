@@ -1,0 +1,5 @@
+sep=,
+Identificador, Nombre, Fecha de Nacimiento, Genero, Cedula, Saldo, Carrera, Fecha de Registro, Estado
+1,Manuel Medina,11/30/1989 12:00:00 AM,M,00000000000,40000.00,ISO,5/2/2019 12:00:00 AM,Activo,
+2,Jose Peralta,9/8/1993 12:00:00 AM,M,00000000000,0.00,DIN,2/26/2012 12:00:00 AM,Inactivo,
+3,Layla Mirabal,2/8/2000 12:00:00 AM,F,00000000000,0.00,PUB,3/14/2009 12:00:00 AM,Activo,
