@@ -257,5 +257,12 @@ namespace GestionCaja
             formulario = new FrmExportaciones((DataTable)dataGridView1.DataSource, this);
             formulario.Show();
         }
+
+        private void movimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmRegMovCaja(usuario);
+            formulario.Show();
+            Hide();
+        }
     }
 }

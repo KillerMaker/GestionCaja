@@ -41,6 +41,7 @@
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnActualizar2 = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -62,7 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.btnExportar = new System.Windows.Forms.Button();
+            this.movimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,6 +76,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.administracionToolStripMenuItem,
+            this.movimientoToolStripMenuItem,
             this.mantenimientoToolStripMenuItem,
             this.ajustesToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -178,6 +180,16 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos";
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(404, 214);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 10;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnActualizar2
             // 
@@ -401,15 +413,12 @@
             this.linkLabel1.Text = "Cerrar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // btnExportar
+            // movimientoToolStripMenuItem
             // 
-            this.btnExportar.Location = new System.Drawing.Point(404, 214);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
-            this.btnExportar.TabIndex = 10;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
+            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.movimientoToolStripMenuItem.Text = "Movimiento";
+            this.movimientoToolStripMenuItem.Click += new System.EventHandler(this.movimientoToolStripMenuItem_Click);
             // 
             // FrmTipoServicio
             // 
@@ -475,5 +484,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.ToolStripMenuItem movimientoToolStripMenuItem;
     }
 }

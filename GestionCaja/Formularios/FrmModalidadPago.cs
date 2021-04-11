@@ -217,5 +217,12 @@ namespace GestionCaja.Formularios
         {
 
         }
+
+        private void movimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmRegMovCaja(usuario);
+            formulario.Show();
+            Hide();
+        }
     }
 }

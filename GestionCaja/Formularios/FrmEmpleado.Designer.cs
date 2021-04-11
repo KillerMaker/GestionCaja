@@ -79,6 +79,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.movimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -501,6 +502,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
             this.administracionToolStripMenuItem,
+            this.movimientoToolStripMenuItem,
             this.mantenimientoToolStripMenuItem,
             this.ajustesToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -612,6 +614,13 @@
             this.linkLabel1.Text = "Cerrar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // movimientoToolStripMenuItem
+            // 
+            this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
+            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.movimientoToolStripMenuItem.Text = "Movimiento";
+            this.movimientoToolStripMenuItem.Click += new System.EventHandler(this.movimientoToolStripMenuItem_Click);
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,5 +701,6 @@
         private System.Windows.Forms.MaskedTextBox txtSueldo;
         private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.ToolStripMenuItem movimientoToolStripMenuItem;
     }
 }
