@@ -32,6 +32,7 @@ namespace GestionCaja.Formularios
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnActualizar2 = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -62,9 +63,9 @@ namespace GestionCaja.Formularios
             this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modalidadesDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,6 +96,7 @@ namespace GestionCaja.Formularios
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnExportar);
             this.groupBox3.Controls.Add(this.btnActualizar2);
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -105,9 +107,19 @@ namespace GestionCaja.Formularios
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(409, 244);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 13;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // btnActualizar2
             // 
-            this.btnActualizar2.Location = new System.Drawing.Point(325, 244);
+            this.btnActualizar2.Location = new System.Drawing.Point(291, 244);
             this.btnActualizar2.Name = "btnActualizar2";
             this.btnActualizar2.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar2.TabIndex = 2;
@@ -346,6 +358,7 @@ namespace GestionCaja.Formularios
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.inicioToolStripMenuItem.Text = "Inicio";
+            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click_1);
             // 
             // administracionToolStripMenuItem
             // 
@@ -359,14 +372,16 @@ namespace GestionCaja.Formularios
             // estudiantesToolStripMenuItem1
             // 
             this.estudiantesToolStripMenuItem1.Name = "estudiantesToolStripMenuItem1";
-            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.estudiantesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.estudiantesToolStripMenuItem1.Text = "Estudiantes";
+            this.estudiantesToolStripMenuItem1.Click += new System.EventHandler(this.estudiantesToolStripMenuItem1_Click_1);
             // 
             // empleadoToolStripMenuItem1
             // 
             this.empleadoToolStripMenuItem1.Name = "empleadoToolStripMenuItem1";
-            this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.empleadoToolStripMenuItem1.Text = "Empleado";
+            this.empleadoToolStripMenuItem1.Click += new System.EventHandler(this.empleadoToolStripMenuItem1_Click_1);
             // 
             // mantenimientoToolStripMenuItem
             // 
@@ -384,18 +399,28 @@ namespace GestionCaja.Formularios
             this.tiposDeDocumentosToolStripMenuItem.Name = "tiposDeDocumentosToolStripMenuItem";
             this.tiposDeDocumentosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeDocumentosToolStripMenuItem.Text = "Tipos de Documentos";
+            this.tiposDeDocumentosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosToolStripMenuItem_Click_1);
             // 
             // tiposDeServiciosToolStripMenuItem
             // 
             this.tiposDeServiciosToolStripMenuItem.Name = "tiposDeServiciosToolStripMenuItem";
             this.tiposDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDeServiciosToolStripMenuItem.Text = "Tipos de Servicios";
+            this.tiposDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeServiciosToolStripMenuItem_Click_1);
             // 
             // tiposDePagosToolStripMenuItem
             // 
             this.tiposDePagosToolStripMenuItem.Name = "tiposDePagosToolStripMenuItem";
             this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.tiposDePagosToolStripMenuItem.Text = "Tipos de Pagos";
+            this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click_1);
+            // 
+            // modalidadesDePagosToolStripMenuItem
+            // 
+            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
+            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
+            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -408,13 +433,7 @@ namespace GestionCaja.Formularios
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
-            // 
-            // modalidadesDePagosToolStripMenuItem
-            // 
-            this.modalidadesDePagosToolStripMenuItem.Name = "modalidadesDePagosToolStripMenuItem";
-            this.modalidadesDePagosToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.modalidadesDePagosToolStripMenuItem.Text = "Modalidades de Pagos";
-            this.modalidadesDePagosToolStripMenuItem.Click += new System.EventHandler(this.modalidadesDePagosToolStripMenuItem_Click);
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click_1);
             // 
             // FrmModalidadPago
             // 
@@ -482,5 +501,6 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ToolStripMenuItem modalidadesDePagosToolStripMenuItem;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

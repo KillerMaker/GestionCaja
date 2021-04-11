@@ -137,6 +137,7 @@ namespace GestionCaja.Formularios
 
             regMovCaja.Insertar();
             dataGridView1.DataSource = CRegMovCaja.Visualizar();
+            limpiar();
 
         }
 
@@ -147,7 +148,23 @@ namespace GestionCaja.Formularios
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            limpiar();
+        }
 
+        private void limpiar()
+        {
+            txtVendedor.Text = "";
+            txtCliente.Text = "";
+            rbtnDocumento.Checked = false;
+            rbtnServicio.Checked = false;
+            cmbTipoDocumento.Items.Clear();
+            cmbTipoDocumento.Enabled = false;
+            cmbTipoServicio.Items.Clear();
+            cmbTipoServicio.Enabled = false;
+            cmbTipoPago.Text = "";
+            mtxtFecha.Text = "";
+            mtxtMonto.Text = "";
+            cmbEstado.Text = "";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -264,6 +281,7 @@ namespace GestionCaja.Formularios
 
         private void FrmRegMovCaja_Load(object sender, EventArgs e)
         {
+            label1.Text = usuario.nombreUsuario;
             lista3 = new List<string>();
             lista4 = new List<int>();
 
@@ -286,6 +304,19 @@ namespace GestionCaja.Formularios
                 lista4.Add(int.Parse(data.Rows[i].Field<string>("id")));
                 cmbTipoPago.Items.Add(lista3[i]);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            formulario = new Login();
+            formulario.Show();
+            Hide();
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmExportaciones((DataTable)dataGridView1.DataSource, this);
+            formulario.Show();
         }
     }
 }

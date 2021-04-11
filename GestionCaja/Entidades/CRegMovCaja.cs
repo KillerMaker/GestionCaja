@@ -23,7 +23,7 @@ namespace GestionCaja.Entidades
 
         static protected SqlDataManagement dataManagement;
 
-        //Constructor que utiliza tipo de servicio con procedencia de la BD
+        //Constructor que utiliza tipo de servicio con Origin de la BD
         public CRegMovCaja(int? id, string empleado, string cliente, string idTipoServicio, string idTipoPago, string fecha, decimal monto, string estado)
         {
             this.id = id;
@@ -48,7 +48,7 @@ namespace GestionCaja.Entidades
         }
 
 
-        //Constructor que utiliza tipo de documento con procedencia de la BD
+        //Constructor que utiliza tipo de documento con Origin de la BD
         public CRegMovCaja(int id, string empleado, string cliente, string idTipoPago, string fecha, decimal monto, string estado, string idTipoDocumento)
         {
             this.id = id;

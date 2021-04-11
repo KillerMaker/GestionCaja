@@ -17,7 +17,7 @@ namespace GestionCaja
 
         //Conexion de Guillermo: "Data Source=DESKTOP-7V51383\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Integrated Security=True"
         //Conexion de Amauris: "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123"
-        public SqlDataManagement(string con= "Data Source=DESKTOP-7V51383\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Integrated Security=True")
+        public SqlDataManagement(string con= "Data Source=LAPTOP-2RLNODU0\\SQLEXPRESS;Initial Catalog=GESTION_CAJAS;Persist Security Info=True;User ID=sa;Password=Gabriel123")
         {
             try
             {

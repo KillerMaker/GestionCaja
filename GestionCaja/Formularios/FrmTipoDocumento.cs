@@ -206,5 +206,11 @@ namespace GestionCaja
             login.Show();
             this.Close();
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmExportaciones((DataTable)dataGridView1.DataSource, this);
+            formulario.Show();
+        }
     }
 }
