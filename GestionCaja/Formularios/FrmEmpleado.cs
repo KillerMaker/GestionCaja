@@ -317,5 +317,7 @@ namespace GestionCaja
             formulario = new FrmExportaciones((DataTable)dataGridView1.DataSource, this);
             formulario.Show();
         }
+
+
     }
 }

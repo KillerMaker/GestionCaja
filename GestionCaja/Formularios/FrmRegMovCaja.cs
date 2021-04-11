@@ -120,7 +120,7 @@ namespace GestionCaja.Formularios
                         break;
                     }
                 }
-                regMovCaja = new CRegMovCaja(txtVendedor.Text, txtCliente.Text, tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text), cmbEstado.Text, tipoDocumento);
+                regMovCaja = new CRegMovCaja(txtVendedor.Text.SQLInyectionClearString(), txtCliente.Text.SQLInyectionClearString(), tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text), cmbEstado.Text, tipoDocumento);
             }
             else
             {
@@ -219,11 +219,11 @@ namespace GestionCaja.Formularios
                 dataGridView1.DataSource = CRegMovCaja.Visualizar();
 
             }
-            }
+        }
 
-            private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = CRegMovCaja.Visualizar($"SELECT * FROM VISTA_REG_MOV_CAJA WHERE {cmbCampo.Text} {cmbCriterio.Text} '{txtValor.Text.SQLInyectionClearString()}'");
         }
 
         private void estudiantesToolStripMenuItem1_Click(object sender, EventArgs e)

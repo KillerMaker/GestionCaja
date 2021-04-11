@@ -100,7 +100,7 @@ namespace GestionCaja.Formularios
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtRuta);
             this.Controls.Add(this.txtNombre);
-            this.Name = "FrmExportaciones";
+            this.Nombre = "FrmExportaciones";
             this.Text = "FrmExportaciones";
             this.Load += new System.EventHandler(this.Exportaciones_Load);
             this.ResumeLayout(false);

@@ -67,6 +67,7 @@ namespace GestionCaja.Formularios
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnActualizar2 = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -78,7 +79,6 @@ namespace GestionCaja.Formularios
             this.txtValor = new System.Windows.Forms.TextBox();
             this.cmbCriterio = new System.Windows.Forms.ComboBox();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
-            this.btnExportar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -447,6 +447,16 @@ namespace GestionCaja.Formularios
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tabla de datos";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(485, 349);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 29;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // btnActualizar2
             // 
             this.btnActualizar2.Location = new System.Drawing.Point(362, 349);
@@ -559,30 +569,20 @@ namespace GestionCaja.Formularios
             this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
             this.cmbCampo.Items.AddRange(new object[] {
-            "NOMBRE",
-            "IDENTIFICADOR",
-            "TANDA_LABOR",
-            "PORCIENTO_COMISION",
-            "FECHA_INGRESO",
-            "SUELDO",
-            "FECHA_NACIMIENTO",
-            "GENERO",
-            "CEDULA",
-            "TIPO_CLIENTE"});
+            "ID_REG_MOV_CAJA",
+            "NOMBRE_ENCARGADO",
+            "NOMBRE_CLIENTE",
+            "ID_CLIENTE",
+            "[TIPO DE SERVICIO]",
+            "[TIPO DE DOCUMENTO]",
+            "[TIPO DE PAGO]",
+            "FECHA_REG_MOV_CAJA",
+            "MONTO_REG_MOV_CAJA",
+            "ESTADO_REG_MOV_CAJA"});
             this.cmbCampo.Location = new System.Drawing.Point(52, 25);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(123, 21);
             this.cmbCampo.TabIndex = 0;
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.Location = new System.Drawing.Point(485, 349);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
-            this.btnExportar.TabIndex = 29;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // FrmRegMovCaja
             // 

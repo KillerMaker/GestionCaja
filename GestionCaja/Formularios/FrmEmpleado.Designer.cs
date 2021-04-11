@@ -61,6 +61,7 @@
             this.cmbCriterio = new System.Windows.Forms.ComboBox();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnActualizar2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -78,7 +79,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.btnExportar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudComision)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -455,6 +455,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tabla de datos";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(460, 337);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.TabIndex = 8;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // btnActualizar2
             // 
             this.btnActualizar2.Location = new System.Drawing.Point(348, 337);
@@ -601,16 +611,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Cerrar Sesion";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.Location = new System.Drawing.Point(460, 337);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
-            this.btnExportar.TabIndex = 8;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // FrmEmpleado
             // 

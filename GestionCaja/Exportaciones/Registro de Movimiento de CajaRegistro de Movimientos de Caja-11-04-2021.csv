@@ -1,0 +1,8 @@
+sep=,
+Id, Nombre Encargado, Nombre Cliente, Id Cliente, Tipo Servicio, Tipo Documento, Tipo Pago, Fecha, Monto, Estado
+1,Guillermo Matos Romero,Guillermo Matos Romero,1,,Factura,Efectivo,3/3/2000 12:00:00 AM,5000.00,Inactivo,
+2,Guillermo Matos Romero,Guillermo Matos Romero,1,Revision,,Efectivo,1/1/2009 12:00:00 AM,5000.00,Activo,
+3,Guillermo Matos Romero,Jose Maria Aranjo,3,,Factura,Efectivo,1/1/2009 12:00:00 AM,6000.00,Inactivo,
+4,Jose Maria Aranjo,Manuel Medina,6,Revision,,Con Tarjeta Presencial,3/3/2010 12:00:00 AM,40000.00,Activo,
+5,Guillermo Matos Romero,Amauris Gabriel Archibald Perez,2,,Certificado,Efectivo,1/1/2009 12:00:00 AM,7000.00,Activo,
+6,Guillermo Matos Romero,Amauris Gabriel Archibald Perez,2,Revision,,Efectivo,1/1/2009 12:00:00 AM,7000.00,Activo,
