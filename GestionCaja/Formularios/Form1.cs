@@ -98,5 +98,13 @@ namespace GestionCaja
             formulario.Show();
             Hide();
         }
+
+        private void movimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formulario = new FrmRegMovCaja(usuario);
+            Hide();
+            formulario.Show();
+
+        }
     }
 }

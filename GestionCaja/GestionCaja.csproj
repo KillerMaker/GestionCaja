@@ -71,11 +71,18 @@
     <Compile Include="Entidades\CPersona.cs" />
     <Compile Include="Entidades\CUsuario.cs" />
     <Compile Include="Entidades\CModalidadPago.cs" />
+    <Compile Include="Entidades\CRegMovCaja.cs" />
     <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmRegMovCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmRegMovCaja.Designer.cs">
+      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmTipoDocumento.cs">
       <SubType>Form</SubType>
@@ -113,11 +120,11 @@
     <Compile Include="Formularios\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ModalidadPago.cs">
+    <Compile Include="Formularios\FrmModalidadPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ModalidadPago.Designer.cs">
-      <DependentUpon>ModalidadPago.cs</DependentUpon>
+    <Compile Include="Formularios\FrmModalidadPago.Designer.cs">
+      <DependentUpon>FrmModalidadPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +139,9 @@
     <EmbeddedResource Include="Formularios\FrmEstudiante.resx">
       <DependentUpon>FrmEstudiante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmRegMovCaja.resx">
+      <DependentUpon>FrmRegMovCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmTipoDocumento.resx">
       <DependentUpon>FrmTipoDocumento.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,8 +154,8 @@
     <EmbeddedResource Include="Formularios\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\ModalidadPago.resx">
-      <DependentUpon>ModalidadPago.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmModalidadPago.resx">
+      <DependentUpon>FrmModalidadPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
