@@ -21,10 +21,11 @@ namespace GestionCaja.Formularios
         private CRegMovCaja regMovCaja;
         private DataTable data;
         private SqlDataManagement dataManagement;
-        private List<string> lista;
-        private List<int> lista2;
-        private List<string> lista3;
-        private List<int> lista4;
+        private List<string> listaServicioDocumentoVal;
+        private List<int> listaServicioDocumentoKey;
+        private List<string> listaTipoPagoVal;
+        private List<int> listaTipoPagoKey;
+
         public FrmRegMovCaja(CUsuario usuario)
         {
             this.usuario = usuario;
@@ -33,8 +34,8 @@ namespace GestionCaja.Formularios
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            lista= new List<string>();
-            lista2 = new List<int>();
+            listaServicioDocumentoVal= new List<string>();
+            listaServicioDocumentoKey = new List<int>();
 
             cmbTipoDocumento.Items.Clear();
             if (rbtnDocumento.Checked == true)
@@ -57,9 +58,9 @@ namespace GestionCaja.Formularios
 
                 for(int i =0;i<data.Rows.Count;i++)
                 {
-                    lista.Add(data.Rows[i].Field<string>("Descripcion"));
-                    lista2.Add(int.Parse(data.Rows[i].Field<string>("id")));
-                    cmbTipoDocumento.Items.Add(lista[i]);
+                    listaServicioDocumentoVal.Add(data.Rows[i].Field<string>("Descripcion"));
+                    listaServicioDocumentoKey.Add(int.Parse(data.Rows[i].Field<string>("id")));
+                    cmbTipoDocumento.Items.Add(listaServicioDocumentoVal[i]);
                     
                 }
 
@@ -68,8 +69,8 @@ namespace GestionCaja.Formularios
         }
         private void rbtnServicio_CheckedChanged(object sender, EventArgs e)
         {
-            lista = new List<string>();
-            lista2 = new List<int>();
+            listaServicioDocumentoVal = new List<string>();
+            listaServicioDocumentoKey = new List<int>();
 
             cmbTipoServicio.Items.Clear();
             if (rbtnServicio.Checked == true)
@@ -92,9 +93,9 @@ namespace GestionCaja.Formularios
 
                 for (int i = 0; i < data.Rows.Count; i++)
                 {
-                    lista.Add(data.Rows[i].Field<string>("Descripcion"));
-                    lista2.Add(int.Parse(data.Rows[i].Field<string>("id")));
-                    cmbTipoServicio.Items.Add(lista[i]);
+                    listaServicioDocumentoVal.Add(data.Rows[i].Field<string>("Descripcion"));
+                    listaServicioDocumentoKey.Add(int.Parse(data.Rows[i].Field<string>("id")));
+                    cmbTipoServicio.Items.Add(listaServicioDocumentoVal[i]);
                 }
             }
         }
@@ -104,37 +105,45 @@ namespace GestionCaja.Formularios
             string tipoServicio="";
             string tipoDocumento="";
 
-            for(int i=0;i<lista.Count-1;i++)
+            string[] vendedor = new string[2];
+            vendedor = txtVendedor.Text.Split(" ".ToCharArray());
+
+            string[] cliente = new string[2];
+            cliente = txtCliente.Text.Split(" ".ToCharArray());
+
+            for (int i=0;i<=listaTipoPagoVal.Count-1;i++)
             {
-                if (lista3[i] == cmbTipoPago.Text)
+                if (listaTipoPagoVal[i] == cmbTipoPago.Text)
                 {
-                    tipoPago = lista4[i].ToString();
+                    tipoPago = listaTipoPagoKey[i].ToString();
                     break;
                 }
             }
             if (rbtnDocumento.Checked == true)
             {
-                for (int i = 0; i < lista.Count - 1; i++)
+                for (int i = 0; i <= listaServicioDocumentoVal.Count - 1; i++)
                 {
-                    if (lista[i] == cmbTipoDocumento.Text)
+                    if (listaServicioDocumentoVal[i] == cmbTipoDocumento.Text)
                     {
-                        tipoDocumento = lista2[i].ToString();
+                        tipoDocumento = listaServicioDocumentoKey[i].ToString();
                         break;
                     }
                 }
-                regMovCaja = new CRegMovCaja(txtVendedor.Text.SQLInyectionClearString(), txtCliente.Text.SQLInyectionClearString(), tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text, tipoDocumento);
+                
+
+                regMovCaja = new CRegMovCaja(vendedor[0], cliente[0], tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text, tipoDocumento);
             }
             else
             {
-                for (int i = 0; i < lista.Count - 1; i++)
+                for (int i = 0; i <= listaServicioDocumentoVal.Count - 1; i++)
                 {
-                    if (lista[i] == cmbTipoServicio.Text)
+                    if (listaServicioDocumentoVal[i] == cmbTipoServicio.Text)
                     {
-                        tipoServicio = lista2[i].ToString();
+                        tipoServicio = listaServicioDocumentoKey[i].ToString();
                         break;
                     }
                 }
-                regMovCaja = new CRegMovCaja(txtVendedor.Text, txtCliente.Text, tipoServicio, tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text);
+                regMovCaja = new CRegMovCaja(vendedor[0], cliente[0], tipoServicio, tipoPago, mtxtFecha.Text, decimal.Parse(mtxtMonto.Text.Replace(",", "").Replace("RD$", "")), cmbEstado.Text);
             }
 
             regMovCaja.Insertar();
@@ -284,11 +293,32 @@ namespace GestionCaja.Formularios
         private void FrmRegMovCaja_Load(object sender, EventArgs e)
         {
             label1.Text = usuario.nombreUsuario;
-            lista3 = new List<string>();
-            lista4 = new List<int>();
-
-            data = new DataTable();
             dataManagement = new SqlDataManagement();
+            
+            // Llenando el comboBox Vendedor
+            dataManagement.ExecuteCommand("SELECT IDENTIFICADOR, NOMBRE FROM VISTA_EMPLEADO");
+            dataManagement.ExecuteReader();
+
+            while (dataManagement.reader.Read())
+            {
+                txtVendedor.Items.Add(dataManagement.reader["IDENTIFICADOR"].ToString() + "  " + dataManagement.reader["NOMBRE"]);
+            }
+
+            dataManagement.connection.Close();
+            //Llenando el comboBox Cliente 
+            dataManagement.ExecuteCommand("SELECT ID_PERSONA, NOMBRE FROM PERSONA");
+            dataManagement.ExecuteReader();
+
+            while (dataManagement.reader.Read())
+            {
+                txtCliente.Items.Add(dataManagement.reader["ID_PERSONA"].ToString() + "  " + dataManagement.reader["NOMBRE"]);
+            }
+
+            dataManagement.connection.Close();
+
+            listaTipoPagoVal = new List<string>();
+            listaTipoPagoKey = new List<int>();
+            data = new DataTable();
 
             data.Columns.Add("id");
             data.Columns.Add("Descripcion");
@@ -299,12 +329,13 @@ namespace GestionCaja.Formularios
             {
                 data.Rows.Add(dataManagement.reader["ID_TIPO_PAGO"], dataManagement.reader["DESCRIPCION"]);
             }
+            dataManagement.connection.Close();
 
             for (int i = 0; i < data.Rows.Count; i++)
             {
-                lista3.Add(data.Rows[i].Field<string>("Descripcion"));
-                lista4.Add(int.Parse(data.Rows[i].Field<string>("id")));
-                cmbTipoPago.Items.Add(lista3[i]);
+                listaTipoPagoVal.Add(data.Rows[i].Field<string>("Descripcion"));
+                listaTipoPagoKey.Add(int.Parse(data.Rows[i].Field<string>("id")));
+                cmbTipoPago.Items.Add(listaTipoPagoVal[i]);
             }
         }
 

@@ -1,0 +1,12 @@
+sep=,
+Id, Nombre Encargado, Nombre Cliente, Id Cliente, Tipo Servicio, Tipo Documento, Tipo Pago, Fecha, Monto, Estado
+6,Guillermo Matos Romero,Amauris Gabriel Archibald Perez,2,Revision,,Efectivo,1/1/2009 12:00:00 AM,7000.00,Activo,
+7,Jose Maria Aranjo,Maria Jose Mansueta,4,,Certificado,Con Tarjeta Presencial,3/20/2020 12:00:00 AM,30000.00,Activo,
+8,Guillermo Matos Romero,Fernando Florentino,5,,Factura,Efectivo,1/1/2020 12:00:00 AM,50000.00,Activo,
+9,Guillermo Matos Romero,Amauris Gabriel Archibald Perez,2,Revision,,Efectivo,1/1/2020 12:00:00 AM,50000.00,Activo,
+10,Guillermo Matos Romero,Jose Maria Aranjo,3,,Cheque,Efectivo,1/1/2020 12:00:00 AM,3000.00,Activo,
+11,Guillermo Matos Romero,Maria Jose Mansueta,4,,Factura,Efectivo,1/1/2000 12:00:00 AM,50000.00,Activo,
+12,Guillermo Matos Romero,Maria Jose Mansueta,4,,Carta De Buena Conducta,Deposito,1/1/2020 12:00:00 AM,20000.00,Activo,
+13,Jose Maria Aranjo,Amauris Gabriel Archibald Perez,2,Inscripcion,,Deposito,3/3/2011 12:00:00 AM,21000.00,Activo,
+14,Guillermo Matos Romero,Jose Maria Aranjo,3,,Carta De Buena Conducta,Deposito,3/3/2021 12:00:00 AM,30000.00,Activo,
+15,Jose Maria Aranjo,Miguel Feliz,12,Pago De Cuota,,Efectivo,1/1/2021 12:00:00 AM,7000.00,Inactivo,

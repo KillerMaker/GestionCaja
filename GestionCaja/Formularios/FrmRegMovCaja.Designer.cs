@@ -36,6 +36,7 @@ namespace GestionCaja.Formularios
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estudiantesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +50,6 @@ namespace GestionCaja.Formularios
             this.rbtnDocumento = new System.Windows.Forms.RadioButton();
             this.rbtnServicio = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtVendedor = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,7 +78,8 @@ namespace GestionCaja.Formularios
             this.txtValor = new System.Windows.Forms.TextBox();
             this.cmbCriterio = new System.Windows.Forms.ComboBox();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
-            this.movimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtVendedor = new System.Windows.Forms.ComboBox();
+            this.txtCliente = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -151,6 +151,13 @@ namespace GestionCaja.Formularios
             this.empleadoToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.empleadoToolStripMenuItem1.Text = "Empleado";
             this.empleadoToolStripMenuItem1.Click += new System.EventHandler(this.empleadoToolStripMenuItem1_Click);
+            // 
+            // movimientoToolStripMenuItem
+            // 
+            this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
+            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.movimientoToolStripMenuItem.Text = "Movimiento";
+            this.movimientoToolStripMenuItem.Click += new System.EventHandler(this.movimientoToolStripMenuItem_Click);
             // 
             // mantenimientoToolStripMenuItem
             // 
@@ -265,20 +272,6 @@ namespace GestionCaja.Formularios
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Movimiento";
             // 
-            // txtVendedor
-            // 
-            this.txtVendedor.Location = new System.Drawing.Point(100, 37);
-            this.txtVendedor.Name = "txtVendedor";
-            this.txtVendedor.Size = new System.Drawing.Size(152, 20);
-            this.txtVendedor.TabIndex = 14;
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(100, 75);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(152, 20);
-            this.txtCliente.TabIndex = 15;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -319,7 +312,7 @@ namespace GestionCaja.Formularios
             // mtxtFecha
             // 
             this.mtxtFecha.Location = new System.Drawing.Point(163, 322);
-            this.mtxtFecha.Mask = "0000/00/00";
+            this.mtxtFecha.Mask = "00/00/0000";
             this.mtxtFecha.Name = "mtxtFecha";
             this.mtxtFecha.Size = new System.Drawing.Size(89, 20);
             this.mtxtFecha.TabIndex = 20;
@@ -374,6 +367,8 @@ namespace GestionCaja.Formularios
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtCliente);
+            this.groupBox2.Controls.Add(this.txtVendedor);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.cmbTipoServicio);
             this.groupBox2.Controls.Add(this.btnLimpiar);
@@ -384,9 +379,7 @@ namespace GestionCaja.Formularios
             this.groupBox2.Controls.Add(this.cmbEstado);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.txtVendedor);
             this.groupBox2.Controls.Add(this.mtxtMonto);
-            this.groupBox2.Controls.Add(this.txtCliente);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.mtxtFecha);
@@ -589,12 +582,23 @@ namespace GestionCaja.Formularios
             this.cmbCampo.Size = new System.Drawing.Size(123, 21);
             this.cmbCampo.TabIndex = 0;
             // 
-            // movimientoToolStripMenuItem
+            // txtVendedor
             // 
-            this.movimientoToolStripMenuItem.Name = "movimientoToolStripMenuItem";
-            this.movimientoToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.movimientoToolStripMenuItem.Text = "Movimiento";
-            this.movimientoToolStripMenuItem.Click += new System.EventHandler(this.movimientoToolStripMenuItem_Click);
+            this.txtVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtVendedor.FormattingEnabled = true;
+            this.txtVendedor.Location = new System.Drawing.Point(100, 37);
+            this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.Size = new System.Drawing.Size(152, 21);
+            this.txtVendedor.TabIndex = 28;
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtCliente.FormattingEnabled = true;
+            this.txtCliente.Location = new System.Drawing.Point(100, 75);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(152, 21);
+            this.txtCliente.TabIndex = 29;
             // 
             // FrmRegMovCaja
             // 
@@ -649,8 +653,6 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.RadioButton rbtnDocumento;
         private System.Windows.Forms.RadioButton rbtnServicio;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtVendedor;
-        private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbTipoDocumento;
         private System.Windows.Forms.Label label5;
@@ -680,5 +682,7 @@ namespace GestionCaja.Formularios
         private System.Windows.Forms.ComboBox cmbTipoServicio;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.ToolStripMenuItem movimientoToolStripMenuItem;
+        private System.Windows.Forms.ComboBox txtCliente;
+        private System.Windows.Forms.ComboBox txtVendedor;
     }
 }
