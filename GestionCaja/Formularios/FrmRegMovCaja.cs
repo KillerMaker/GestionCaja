@@ -356,7 +356,8 @@ namespace GestionCaja.Formularios
         {
             formulario = new FrmRegMovCaja(usuario);
             formulario.Show();
-            Hide();
+            this.Hide();
         }
     }
 }
+//GG WP
